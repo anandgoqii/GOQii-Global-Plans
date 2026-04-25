@@ -44,11 +44,8 @@ export function ConnectedAndDevices() {
               Your Health,<br/>Fully Connected
             </h2>
             <div className="w-12 h-1 bg-emerald-500 mb-8 rounded-full"></div>
-            <p className="text-xl text-neutral-600 mb-6 font-medium">
-              Sleep, stress, activity, and nutrition are all connected.
-            </p>
-            <p className="text-lg text-neutral-500 leading-relaxed">
-              GOQii brings everything together into one intelligent system that continuously adapts to you. No more fragmented data across multiple apps. We analyze the big picture to give you holistic recommendations.
+            <p className="text-xl text-neutral-600 leading-relaxed max-w-lg font-medium">
+              Your activity, meals, sleep, and coaching all work together—so every step you take leads to real progress.
             </p>
           </div>
         </div>

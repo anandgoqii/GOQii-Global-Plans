@@ -31,22 +31,22 @@ export function Hero() {
           </div>
 
           <h1 className="text-5xl sm:text-6xl lg:text-7xl font-semibold tracking-tight text-neutral-900 leading-[1.05] mb-6">
-            One Platform. <br/>
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-teal-700 to-emerald-600">Every Dimension</span><br/>
-            Of Your Health.
+            Everything your health needs. <br/>
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-teal-700 to-emerald-600">One simple app.</span>
           </h1>
           
-          <p className="text-lg text-neutral-600 mb-10 max-w-lg leading-relaxed">
-            Personalized health programs powered by AI, expert coaching, and your own devices.
+          <p className="text-lg text-neutral-600 mb-10 max-w-xl leading-relaxed">
+            Track, eat, move, improve, and stay motivated—all in one place.<br/>
+            No switching apps. No scattered data. Just real results.
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4">
             <button className="bg-neutral-900 hover:bg-neutral-800 text-white px-8 py-4 rounded-xl font-medium transition-colors flex items-center justify-center gap-2 group">
-              Explore Plans
+              Start Your Plan
               <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
             </button>
             <button className="bg-white hover:bg-neutral-50 text-neutral-900 border border-neutral-200 px-8 py-4 rounded-xl font-medium transition-colors flex items-center justify-center">
-              See How It Works
+              Explore Plans
             </button>
           </div>
         </motion.div>

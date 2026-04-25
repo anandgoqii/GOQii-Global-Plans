@@ -62,16 +62,14 @@ export function TrustedSecure() {
     'ISO 27001 Certified',
     'HIPAA Aligned',
     'GDPR Ready',
-    'PDPL Compliant',
-    'Data Residency Enabled',
-    'RBAC Access Control'
+    'PDPL Compliant'
   ];
 
   return (
     <section className="py-20 bg-white border-y border-neutral-100">
       <div className="max-w-7xl mx-auto px-4 text-center">
         <h2 className="text-sm font-bold tracking-widest text-neutral-400 uppercase mb-8">
-          Trusted and Secure
+          Your data stays protected
         </h2>
         
         <div className="flex flex-wrap justify-center gap-x-12 gap-y-6 mb-8">
@@ -84,7 +82,7 @@ export function TrustedSecure() {
         </div>
         
         <p className="text-sm text-neutral-400">
-          Your data is protected based on your region.
+          Security and privacy based on your region.
         </p>
       </div>
     </section>

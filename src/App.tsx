@@ -8,6 +8,8 @@ import { TopBar } from './components/TopBar';
 import { NavBar } from './components/NavBar';
 import { PreferencesModal } from './components/PreferencesModal';
 import { Hero } from './components/Hero';
+import { ScatteredVsSimple } from './components/ScatteredVsSimple';
+import { FeatureGrid } from './components/FeatureGrid';
 import { HowItWorks } from './components/HowItWorks';
 import { HealthSystem } from './components/HealthSystem';
 import { ConnectedAndDevices } from './components/ConnectedDevices';
@@ -21,6 +23,8 @@ function AppContent() {
       <NavBar />
       <main className="flex-grow">
         <Hero />
+        <ScatteredVsSimple />
+        <FeatureGrid />
         <HowItWorks />
         <HealthSystem />
         <ConnectedAndDevices />

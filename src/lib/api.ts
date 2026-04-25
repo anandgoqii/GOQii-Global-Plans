@@ -18,43 +18,34 @@ export interface Plan {
 const MOCK_PLANS: Plan[] = [
   {
     id: 'p1',
-    name: 'Transform Core',
-    category: 'Lifestyle',
-    shortDescription: 'Essential tracking and coaching for everyday wellness.',
-    features: ['Personalized fitness plan', 'Nutritional guidance', 'Weekly coach check-ins'],
-    monthlyPrice: 19.99,
-    annualPrice: 199.99,
+    name: 'Care & Control',
+    category: 'Chronic Care',
+    shortDescription: 'Ongoing support to manage conditions and stay in control of your health.',
+    features: ['Dedicated health coach', 'Doctor guidance & check-ins', 'Continuous health tracking'],
+    monthlyPrice: 49.99,
+    annualPrice: 499.99,
     isPopular: true,
     tag: 'Most Popular'
   },
   {
     id: 'p2',
-    name: 'Diabetes Care',
-    category: 'Chronic Care',
-    shortDescription: 'Specialized management for blood sugar and metabolic health.',
-    features: ['Doctor consultations', 'HbA1c tracking & analysis', 'Specialized dietitian support'],
-    monthlyPrice: 49.99,
-    annualPrice: 499.99,
+    name: 'Fitness & Weight',
+    category: 'Lifestyle',
+    shortDescription: 'Build better habits, improve fitness, and achieve sustainable weight goals.',
+    features: ['Personalized workouts', 'Nutrition guidance', 'Daily habit tracking'],
+    monthlyPrice: 19.99,
+    annualPrice: 199.99,
     tag: 'Recommended'
   },
   {
     id: 'p3',
-    name: 'Mind Plus',
+    name: 'Stress & Sleep',
     category: 'Mental Well-being',
-    shortDescription: 'Focused on stress reduction, sleep, and mental clarity.',
-    features: ['Guided meditation library', 'Stress index monitoring', 'Therapist sessions included'],
+    shortDescription: 'Improve mental clarity, reduce stress, and sleep better every day.',
+    features: ['Guided meditation', 'Sleep tracking & insights', 'Stress management tools'],
     monthlyPrice: 29.99,
     annualPrice: 299.99,
     tag: 'New'
-  },
-  {
-    id: 'p4',
-    name: 'Pro Athlete',
-    category: 'Lifestyle',
-    shortDescription: 'Advanced analytics and elite coaching for peak performance.',
-    features: ['Daily readiness score', 'Elite performance coach', 'Detailed recovery metrics'],
-    monthlyPrice: 39.99,
-    annualPrice: 399.99
   }
 ];
 

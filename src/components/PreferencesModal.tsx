@@ -63,7 +63,7 @@ export function PreferencesModal() {
           >
             <div className="p-6">
               <div className="flex justify-between items-center mb-6">
-                <h2 className="text-xl font-semibold text-neutral-900">Select Region & Language</h2>
+                <h2 className="text-xl font-semibold text-neutral-900">Select your country and language</h2>
                 <button 
                   onClick={() => setIsModalOpen(false)}
                   className="p-2 -mr-2 text-neutral-400 hover:text-neutral-900 rounded-full hover:bg-neutral-100 transition-colors"
