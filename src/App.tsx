@@ -3,38 +3,29 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { PreferencesProvider } from './context/PreferencesContext';
 import { TopBar } from './components/TopBar';
 import { NavBar } from './components/NavBar';
 import { PreferencesModal } from './components/PreferencesModal';
-import { Hero } from './components/Hero';
-import { ScatteredVsSimple } from './components/ScatteredVsSimple';
-import { FeatureGrid } from './components/FeatureGrid';
-import { HowItWorks } from './components/HowItWorks';
-import { HealthSystem } from './components/HealthSystem';
-import { ConnectedAndDevices } from './components/ConnectedDevices';
-import { ComparePlans, TrustedSecure } from './components/CompareAndSecure';
-import { RealTimeAndResults, FooterCTA } from './components/RealTimeAndCTA';
+import { HomePage } from './components/HomePage';
+import { ChronicCarePage } from './components/ChronicCarePage';
 
 function AppContent() {
   return (
-    <div className="font-sans antialiased text-neutral-900 selection:bg-emerald-100 selection:text-emerald-900 flex flex-col min-h-screen">
-      <TopBar />
-      <NavBar />
-      <main className="flex-grow">
-        <Hero />
-        <ScatteredVsSimple />
-        <FeatureGrid />
-        <HowItWorks />
-        <HealthSystem />
-        <ConnectedAndDevices />
-        <ComparePlans />
-        <TrustedSecure />
-        <RealTimeAndResults />
-      </main>
-      <FooterCTA />
-      <PreferencesModal />
-    </div>
+    <Router>
+      <div className="font-sans antialiased text-neutral-900 selection:bg-blue-100 selection:text-blue-900 flex flex-col min-h-screen">
+        <TopBar />
+        <NavBar />
+        <main className="flex-grow">
+          <Routes>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/chronic-care" element={<ChronicCarePage />} />
+          </Routes>
+        </main>
+        <PreferencesModal />
+      </div>
+    </Router>
   );
 }
 

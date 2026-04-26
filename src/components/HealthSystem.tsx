@@ -4,6 +4,8 @@ import { fetchPlans, Plan } from '../lib/api';
 import { Check, Loader2 } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 
+import { Link, useNavigate } from 'react-router-dom';
+
 const TABS = ['All Plans', 'Chronic Care', 'Lifestyle', 'Mental Well-being'];
 
 export function HealthSystem() {
@@ -12,6 +14,7 @@ export function HealthSystem() {
   const [loading, setLoading] = useState(true);
   const [activeTab, setActiveTab] = useState('All Plans');
   const [billingCycle, setBillingCycle] = useState<'monthly' | 'annual'>('annual');
+  const navigate = useNavigate();
 
   useEffect(() => {
     let mounted = true;
@@ -156,7 +159,13 @@ export function HealthSystem() {
                       ))}
                     </ul>
 
-                    <button className={`w-full py-4 rounded-xl font-semibold transition-colors mt-auto ${
+                    <button 
+                      onClick={() => {
+                        if (plan.category === 'Chronic Care') {
+                          navigate('/chronic-care');
+                        }
+                      }}
+                      className={`w-full py-4 rounded-xl font-semibold transition-colors mt-auto ${
                       plan.isPopular 
                         ? 'bg-neutral-900 text-white hover:bg-neutral-800' 
                         : 'bg-neutral-100 text-neutral-900 hover:bg-neutral-200'

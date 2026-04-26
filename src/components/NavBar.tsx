@@ -1,11 +1,11 @@
 import { Menu, X } from 'lucide-react';
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
+import { Link } from 'react-router-dom';
 
 const NAV_LINKS = [
   { name: 'Plans', href: '#' },
   { name: 'How it Works', href: '#' },
-  { name: 'Devices', href: '#' },
   { name: 'Success Stories', href: '#' },
 ];
 
@@ -18,9 +18,9 @@ export function NavBar() {
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <div className="flex-shrink-0 flex items-center">
-            <span className="text-2xl font-bold tracking-tight text-neutral-900">
+            <Link to="/" className="text-2xl font-bold tracking-tight text-neutral-900 hover:opacity-80 transition-opacity">
               GOQii
-            </span>
+            </Link>
           </div>
 
           {/* Desktop Menu */}
