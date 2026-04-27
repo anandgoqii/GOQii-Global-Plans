@@ -4,44 +4,44 @@ const FEATURES = [
   {
     icon: Activity,
     title: 'Activity Tracking',
+    image: 'https://images.unsplash.com/photo-1552674605-db6ffd4facb5?auto=format&fit=crop&q=80&w=600',
     copy: 'Steps, sleep, and daily movement—all tracked automatically.',
     micro: 'Your activity shapes your daily plan.'
   },
   {
     icon: Apple,
     title: 'Personalized Nutrition',
+    image: 'https://images.unsplash.com/photo-1490645935967-10de6ba17061?auto=format&fit=crop&q=80&w=600',
     copy: 'Meal plans and guidance tailored to you.',
     micro: 'Your meals adapt to your activity.'
   },
   {
     icon: Dumbbell,
     title: 'Workouts & Fitness',
+    image: 'https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?auto=format&fit=crop&q=80&w=600',
     copy: 'Guided workouts designed for your goals.',
     micro: 'Your workouts adjust as you improve.'
   },
   {
     icon: UserCheck,
     title: 'Expert Coaching',
+    image: 'https://images.unsplash.com/photo-1526676037777-05a232554f77?auto=format&fit=crop&q=80&w=600',
     copy: 'Real humans guiding and motivating you.',
     micro: 'Your coach tracks your progress.'
   },
   {
     icon: Stethoscope,
     title: 'Chronic Care Support',
+    image: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&q=80&w=600',
     copy: 'Structured support for long-term conditions.',
     micro: 'Your plan adapts to your health needs.'
   },
   {
     icon: Award,
     title: 'Wellness Rewards',
+    image: 'https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&q=80&w=600',
     copy: 'Earn rewards for staying consistent.',
     micro: 'Your effort gets rewarded.'
-  },
-  {
-    icon: Users,
-    title: 'Community & Motivation',
-    copy: 'Stay engaged with challenges and support.',
-    micro: 'You’re never doing this alone.'
   }
 ];
 
@@ -60,15 +60,20 @@ export function FeatureGrid() {
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
            {FEATURES.map((feat, i) => (
-             <div key={i} className="bg-neutral-50 p-8 rounded-3xl border border-neutral-100 hover:border-neutral-200 hover:bg-neutral-100/50 transition-colors group">
-               <div className="w-12 h-12 bg-white rounded-xl shadow-sm border border-neutral-200 flex items-center justify-center text-neutral-900 mb-6 group-hover:scale-110 transition-transform">
-                 <feat.icon className="w-6 h-6" />
+             <div key={i} className="bg-neutral-50 rounded-3xl border border-neutral-100 hover:border-neutral-200 hover:bg-neutral-100/50 transition-colors group overflow-hidden flex flex-col">
+               <div className="aspect-video w-full overflow-hidden border-b border-neutral-100">
+                 <img src={feat.image} alt={feat.title} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
                </div>
-               <h3 className="text-xl font-bold text-neutral-900 mb-3">{feat.title}</h3>
-               <p className="text-neutral-600 mb-6">{feat.copy}</p>
-               
-               <div className="mt-auto inline-block bg-white px-4 py-2 rounded-lg text-xs font-semibold text-neutral-500 border border-neutral-200 shadow-sm">
-                 {feat.micro}
+               <div className="p-8 flex flex-col flex-grow">
+                 <div className="w-12 h-12 bg-white rounded-xl shadow-sm border border-neutral-200 flex items-center justify-center text-neutral-900 mb-6 group-hover:scale-110 transition-transform -mt-14 relative z-10">
+                   <feat.icon className="w-6 h-6" />
+                 </div>
+                 <h3 className="text-xl font-bold text-neutral-900 mb-3">{feat.title}</h3>
+                 <p className="text-neutral-600 mb-6 flex-grow">{feat.copy}</p>
+                 
+                 <div className="mt-auto inline-block bg-white px-4 py-2 rounded-lg text-xs font-semibold text-neutral-500 border border-neutral-200 shadow-sm">
+                   {feat.micro}
+                 </div>
                </div>
              </div>
            ))}

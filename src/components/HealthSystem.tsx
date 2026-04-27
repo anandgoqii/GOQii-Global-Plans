@@ -127,6 +127,14 @@ export function HealthSystem() {
                     <div className="mb-2">
                       <span className="text-sm font-medium text-neutral-500">{plan.category}</span>
                     </div>
+                    <div className="aspect-video w-full rounded-2xl overflow-hidden mb-6 border border-neutral-100 shadow-inner bg-neutral-50">
+                      <img 
+                        src={plan.image} 
+                        alt={plan.name} 
+                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                        referrerPolicy="no-referrer"
+                      />
+                    </div>
                     <h3 className="text-2xl font-bold text-neutral-900 mb-3">{plan.name}</h3>
                     <p className="text-neutral-600 mb-6 text-sm">{plan.shortDescription}</p>
 

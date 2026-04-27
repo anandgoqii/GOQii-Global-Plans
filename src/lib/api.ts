@@ -8,6 +8,7 @@ export interface Plan {
   name: string;
   category: PlanCategory;
   shortDescription: string;
+  image: string;
   features: string[];
   monthlyPrice: number;
   annualPrice: number;
@@ -21,6 +22,7 @@ const MOCK_PLANS: Plan[] = [
     name: 'Care & Control',
     category: 'Chronic Care',
     shortDescription: 'Ongoing support to manage conditions and stay in control of your health.',
+    image: 'https://images.unsplash.com/photo-1576091160550-2173dad9998e?auto=format&fit=crop&q=80&w=800',
     features: ['Dedicated health coach', 'Doctor guidance & check-ins', 'Continuous health tracking'],
     monthlyPrice: 49.99,
     annualPrice: 499.99,
@@ -32,6 +34,7 @@ const MOCK_PLANS: Plan[] = [
     name: 'Fitness & Weight',
     category: 'Lifestyle',
     shortDescription: 'Build better habits, improve fitness, and achieve sustainable weight goals.',
+    image: 'https://images.unsplash.com/photo-1517836357463-d25dfeac3438?auto=format&fit=crop&q=80&w=800',
     features: ['Personalized workouts', 'Nutrition guidance', 'Daily habit tracking'],
     monthlyPrice: 19.99,
     annualPrice: 199.99,
@@ -42,6 +45,7 @@ const MOCK_PLANS: Plan[] = [
     name: 'Stress & Sleep',
     category: 'Mental Well-being',
     shortDescription: 'Improve mental clarity, reduce stress, and sleep better every day.',
+    image: 'https://images.unsplash.com/photo-1506126613408-eca07ce68773?auto=format&fit=crop&q=80&w=800',
     features: ['Guided meditation', 'Sleep tracking & insights', 'Stress management tools'],
     monthlyPrice: 29.99,
     annualPrice: 299.99,
