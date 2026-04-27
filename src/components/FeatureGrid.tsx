@@ -4,7 +4,7 @@ const FEATURES = [
   {
     icon: Activity,
     title: 'Activity Tracking',
-    image: 'https://images.unsplash.com/photo-1552674605-db6ffd4facb5?auto=format&fit=crop&q=80&w=600',
+    image: 'https://appcdn.goqii.com/storeimg/34165_1777294404.png',
     copy: 'Steps, sleep, and daily movement—all tracked automatically.',
     micro: 'Your activity shapes your daily plan.'
   },
@@ -25,7 +25,7 @@ const FEATURES = [
   {
     icon: UserCheck,
     title: 'Expert Coaching',
-    image: 'https://images.unsplash.com/photo-1526676037777-05a232554f77?auto=format&fit=crop&q=80&w=600',
+    image: 'https://appcdn.goqii.com/storeimg/13859_1777284656.png',
     copy: 'Real humans guiding and motivating you.',
     micro: 'Your coach tracks your progress.'
   },
@@ -39,7 +39,7 @@ const FEATURES = [
   {
     icon: Award,
     title: 'Wellness Rewards',
-    image: 'https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&q=80&w=600',
+    image: 'https://appcdn.goqii.com/storeimg/94616_1777284776.png',
     copy: 'Earn rewards for staying consistent.',
     micro: 'Your effort gets rewarded.'
   }
@@ -79,7 +79,7 @@ export function FeatureGrid() {
            ))}
            
            {/* Summary Card to fill the grid nicely */}
-           <div className="lg:col-span-2 bg-neutral-900 p-8 rounded-3xl text-white flex flex-col justify-center relative overflow-hidden">
+           <div className="md:col-span-2 lg:col-span-2 bg-neutral-900 p-8 rounded-3xl text-white flex flex-col justify-center relative overflow-hidden">
              <div className="absolute top-0 right-0 w-64 h-64 bg-emerald-500/20 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2"></div>
              <h3 className="text-2xl sm:text-3xl font-semibold mb-4 relative z-10">It all works together</h3>
              <p className="text-neutral-300 text-lg mb-6 max-w-lg relative z-10">

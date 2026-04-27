@@ -37,7 +37,9 @@ export function ChronicResults() {
                "Before GOQii, I was using three different apps to manage my diabetes. My doctor told me to track food, my watch tracked steps, and I had a manual log for blood sugar. Now my coach sees it all in one place and actually helps me make sense of it."
              </p>
              <div className="flex items-center gap-5 relative z-10 border-t border-white/10 pt-8">
-               <div className="w-14 h-14 bg-blue-600 rounded-full flex items-center justify-center text-2xl font-bold shadow-lg">R</div>
+               <div className="w-14 h-14 rounded-full overflow-hidden shadow-lg border-2 border-white/10 flex items-center justify-center bg-blue-600">
+                 <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=200" alt="Rajeev M." className="w-full h-full object-cover" />
+               </div>
                <div>
                  <div className="font-bold text-lg tracking-wide">Rajeev M.</div>
                  <div className="text-sm text-neutral-400 font-medium tracking-wide">Reduced fasting sugar by 20%</div>

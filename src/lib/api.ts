@@ -18,18 +18,6 @@ export interface Plan {
 
 const MOCK_PLANS: Plan[] = [
   {
-    id: 'p1',
-    name: 'Care & Control',
-    category: 'Chronic Care',
-    shortDescription: 'Ongoing support to manage conditions and stay in control of your health.',
-    image: 'https://images.unsplash.com/photo-1576091160550-2173dad9998e?auto=format&fit=crop&q=80&w=800',
-    features: ['Dedicated health coach', 'Doctor guidance & check-ins', 'Continuous health tracking'],
-    monthlyPrice: 49.99,
-    annualPrice: 499.99,
-    isPopular: true,
-    tag: 'Most Popular'
-  },
-  {
     id: 'p2',
     name: 'Fitness & Weight',
     category: 'Lifestyle',
@@ -39,6 +27,18 @@ const MOCK_PLANS: Plan[] = [
     monthlyPrice: 19.99,
     annualPrice: 199.99,
     tag: 'Recommended'
+  },
+  {
+    id: 'p1',
+    name: 'Care & Control',
+    category: 'Chronic Care',
+    shortDescription: 'Ongoing support to manage conditions and stay in control of your health.',
+    image: 'https://appcdn.goqii.com/storeimg/12462_1777289140.png',
+    features: ['Dedicated health coach', 'Doctor guidance & check-ins', 'Continuous health tracking'],
+    monthlyPrice: 49.99,
+    annualPrice: 499.99,
+    isPopular: true,
+    tag: 'Most Popular'
   },
   {
     id: 'p3',

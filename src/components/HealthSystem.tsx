@@ -111,11 +111,13 @@ export function HealthSystem() {
                     transition={{ duration: 0.4, delay: i * 0.1 }}
                     key={plan.id}
                     className={`relative flex flex-col bg-white rounded-3xl p-8 border ${
-                      plan.isPopular ? 'border-neutral-900 shadow-2xl scale-105 z-10' : 'border-neutral-200 shadow-lg mt-4 mb-4'
+                      plan.isPopular ? 'border-neutral-900 shadow-2xl md:scale-105 z-10' : 'border-neutral-200 shadow-lg md:mt-4 md:mb-4 mb-4'
                     }`}
                   >
                     {plan.tag && (
-                      <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2">
+                      <div className={`absolute top-0 -translate-y-1/2 ${
+                        plan.isPopular ? 'left-1/2 -translate-x-1/2' : 'left-8'
+                      }`}>
                         <span className={`px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-wide ${
                           plan.isPopular ? 'bg-neutral-900 text-white' : 'bg-emerald-100 text-emerald-800'
                         }`}>
@@ -185,7 +187,7 @@ export function HealthSystem() {
               </AnimatePresence>
               
               {filteredPlans.length === 0 && (
-                <div className="col-span-3 text-center py-20 text-neutral-500 bg-white rounded-3xl border border-neutral-200">
+                <div className="md:col-span-2 lg:col-span-3 text-center py-20 text-neutral-500 bg-white rounded-3xl border border-neutral-200">
                   No plans found for this category.
                 </div>
               )}

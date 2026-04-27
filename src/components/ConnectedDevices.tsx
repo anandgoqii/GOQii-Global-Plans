@@ -1,4 +1,4 @@
-import { Smartphone, Watch, Compass, HeartPulse, ActivitySquare, Waves } from 'lucide-react';
+import { Smartphone, Watch, Compass, HeartPulse, ActivitySquare, Waves, Utensils, Trophy, Brain } from 'lucide-react';
 import { motion } from 'motion/react';
 
 export function ConnectedAndDevices() {
@@ -7,7 +7,7 @@ export function ConnectedAndDevices() {
       {/* Connected Section */}
       <div className="py-24 px-4 border-b border-neutral-100">
         <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-16 items-center">
-          <div className="order-2 lg:order-1 relative h-[500px] flex items-center justify-center">
+          <div className="order-2 lg:order-1 relative h-[400px] lg:h-[500px] flex items-center justify-center">
              {/* Abstract connected visual */}
              <div className="relative w-full max-w-sm aspect-square">
                <div className="absolute inset-0 bg-neutral-50 rounded-full border border-neutral-100"></div>
@@ -17,21 +17,46 @@ export function ConnectedAndDevices() {
                  transition={{ duration: 40, repeat: Infinity, ease: "linear" }}
                  className="absolute inset-0 border border-dashed border-neutral-200 rounded-full"
                >
+                  {/* 0 deg */}
                   <div className="absolute top-0 left-1/2 -ml-6 -mt-6 bg-white p-3 rounded-2xl shadow-lg border border-neutral-100 text-teal-600">
                     <ActivitySquare className="w-6 h-6" />
                   </div>
-                  <div className="absolute bottom-1/4 right-0 -mr-4 bg-white p-3 rounded-2xl shadow-lg border border-neutral-100 text-indigo-600 rotate-90">
-                    <Waves className="w-6 h-6 -rotate-90" />
+                  
+                  {/* 60 deg */}
+                  <div className="absolute top-[18%] right-[5%] -mr-3 bg-white p-3 rounded-2xl shadow-lg border border-neutral-100 text-orange-600">
+                    <Utensils className="w-6 h-6" />
                   </div>
-                  <div className="absolute bottom-1/4 left-0 -ml-4 bg-white p-3 rounded-2xl shadow-lg border border-neutral-100 text-emerald-600 -rotate-90">
-                    <HeartPulse className="w-6 h-6 rotate-90" />
+
+                  {/* 120 deg */}
+                  <div className="absolute bottom-[18%] right-[5%] -mr-3 bg-white p-3 rounded-2xl shadow-lg border border-neutral-100 text-indigo-600">
+                    <Waves className="w-6 h-6" />
+                  </div>
+
+                  {/* 180 deg */}
+                  <div className="absolute bottom-0 left-1/2 -ml-6 -mb-6 bg-white p-3 rounded-2xl shadow-lg border border-neutral-100 text-yellow-600">
+                    <Trophy className="w-6 h-6" />
+                  </div>
+
+                  {/* 240 deg */}
+                  <div className="absolute bottom-[18%] left-[5%] -ml-3 bg-white p-3 rounded-2xl shadow-lg border border-neutral-100 text-emerald-600">
+                    <HeartPulse className="w-6 h-6" />
+                  </div>
+
+                  {/* 300 deg */}
+                  <div className="absolute top-[18%] left-[5%] -ml-3 bg-white p-3 rounded-2xl shadow-lg border border-neutral-100 text-purple-600">
+                    <Brain className="w-6 h-6" />
                   </div>
                </motion.div>
                
                <div className="absolute inset-8 bg-neutral-100 rounded-full border border-neutral-200"></div>
                <div className="absolute inset-x-0 top-1/2 -mt-16 text-center z-10 flex flex-col items-center">
-                 <div className="w-32 h-32 bg-neutral-900 rounded-full flex items-center justify-center text-white shadow-xl mb-4 relative z-20">
-                   <div className="font-semibold text-2xl tracking-tighter">GOQii</div>
+                 <div className="w-32 h-32 bg-neutral-950 rounded-full flex items-center justify-center shadow-xl mb-4 relative z-20">
+                   <img 
+                      src="https://appcdn.goqii.com/storeimg/24232_1777292053.png" 
+                      alt="GOQii" 
+                      className="w-[36%] h-auto"
+                      referrerPolicy="no-referrer"
+                    />
                  </div>
                  <div className="text-sm font-semibold text-neutral-500 uppercase tracking-widest bg-white/80 backdrop-blur px-4 py-1.5 rounded-full shadow-sm border border-neutral-100">
                    Central Hub

@@ -4,28 +4,28 @@ const STEPS = [
   {
     icon: Activity,
     title: 'Track your daily habits',
-    image: 'https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?auto=format&fit=crop&q=80&w=600',
+    image: 'https://appcdn.goqii.com/storeimg/1844_1777285584.png',
     description: 'Connect your devices or log manually.',
     color: 'bg-blue-50 text-blue-600'
   },
   {
     icon: BrainCircuit,
     title: 'Get personalized insights',
-    image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=600',
+    image: 'https://appcdn.goqii.com/storeimg/20849_1777286294.png',
     description: 'Understand how your habits connect.',
     color: 'bg-purple-50 text-purple-600'
   },
   {
     icon: Users,
     title: 'Follow your plan',
-    image: 'https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&q=80&w=600',
+    image: 'https://appcdn.goqii.com/storeimg/79212_1777286557.png',
     description: 'Complete daily tasks curated for you.',
     color: 'bg-orange-50 text-orange-600'
   },
   {
     icon: TrendingUp,
     title: 'Improve continuously',
-    image: 'https://images.unsplash.com/photo-1447452001602-7090c7ab2db3?auto=format&fit=crop&q=80&w=600',
+    image: 'https://appcdn.goqii.com/storeimg/6070_1777286873.png',
     description: 'See real progress over time.',
     color: 'bg-emerald-50 text-emerald-600'
   }

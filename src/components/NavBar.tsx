@@ -18,8 +18,13 @@ export function NavBar() {
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <div className="flex-shrink-0 flex items-center">
-            <Link to="/" className="text-2xl font-bold tracking-tight text-neutral-900 hover:opacity-80 transition-opacity">
-              GOQii
+            <Link to="/" className="hover:opacity-80 transition-opacity">
+              <img 
+                src="https://appcdn.goqii.com/storeimg/61311_1777280859.png" 
+                alt="GOQii" 
+                className="h-8 w-auto"
+                referrerPolicy="no-referrer"
+              />
             </Link>
           </div>
 
@@ -50,7 +55,8 @@ export function NavBar() {
           <div className="md:hidden flex items-center">
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="text-neutral-600 hover:text-neutral-900 focus:outline-none p-2 rounded-md hover:bg-neutral-100 transition-colors"
+              className="text-neutral-600 hover:text-neutral-900 focus:outline-none p-3 -mr-3 rounded-full hover:bg-neutral-100 transition-colors"
+              aria-label="Toggle menu"
             >
               {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
             </button>

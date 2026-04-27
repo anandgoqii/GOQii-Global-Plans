@@ -23,51 +23,51 @@ export function ScatteredVsSimple() {
             </p>
           </div>
           
-          <div className="relative h-[400px] flex items-center justify-center">
+          <div className="relative h-[300px] sm:h-[400px] flex items-center justify-center">
             <div className="absolute inset-0 bg-neutral-200/50 rounded-full blur-3xl opacity-50"></div>
             
             <motion.div 
               animate={{ y: [-10, 10, -10], x: [-5, 5, -5], rotate: [-2, 2, -2] }}
               transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-              className="absolute top-10 left-10 bg-white p-6 rounded-2xl shadow-xl border border-neutral-100 flex flex-col items-center gap-3 w-32"
+              className="absolute top-0 left-0 sm:top-10 sm:left-10 bg-white p-4 sm:p-6 rounded-2xl shadow-xl border border-neutral-100 flex flex-col items-center gap-2 sm:gap-3 w-28 sm:w-32"
             >
-              <div className="w-12 h-12 bg-blue-100 text-blue-600 rounded-xl flex items-center justify-center">
-                <Activity className="w-6 h-6" />
+              <div className="w-10 h-10 sm:w-12 sm:h-12 bg-blue-100 text-blue-600 rounded-xl flex items-center justify-center">
+                <Activity className="w-5 h-5 sm:w-6 sm:h-6" />
               </div>
-              <span className="text-sm font-medium text-neutral-500">Diet</span>
+              <span className="text-xs sm:text-sm font-medium text-neutral-500">Diet</span>
             </motion.div>
 
             <motion.div 
               animate={{ y: [10, -10, 10], x: [5, -5, 5], rotate: [2, -2, 2] }}
               transition={{ duration: 7, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-              className="absolute bottom-10 right-10 bg-white p-6 rounded-2xl shadow-xl border border-neutral-100 flex flex-col items-center gap-3 w-32"
+              className="absolute bottom-0 right-0 sm:bottom-10 sm:right-10 bg-white p-4 sm:p-6 rounded-2xl shadow-xl border border-neutral-100 flex flex-col items-center gap-2 sm:gap-3 w-28 sm:w-32"
             >
-              <div className="w-12 h-12 bg-purple-100 text-purple-600 rounded-xl flex items-center justify-center">
-                <BarChart className="w-6 h-6" />
+              <div className="w-10 h-10 sm:w-12 sm:h-12 bg-purple-100 text-purple-600 rounded-xl flex items-center justify-center">
+                <BarChart className="w-5 h-5 sm:w-6 sm:h-6" />
               </div>
-              <span className="text-sm font-medium text-neutral-500">Reports</span>
+              <span className="text-xs sm:text-sm font-medium text-neutral-500">Reports</span>
             </motion.div>
             
             <motion.div 
               animate={{ y: [-15, 15, -15], rotate: [-4, 4, -4] }}
               transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 2 }}
-              className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-white p-6 rounded-2xl shadow-xl border border-neutral-100 flex flex-col items-center gap-3 w-32 z-10"
+              className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-white p-4 sm:p-6 rounded-2xl shadow-xl border border-neutral-100 flex flex-col items-center gap-2 sm:gap-3 w-28 sm:w-32 z-10"
             >
-              <div className="w-12 h-12 bg-rose-100 text-rose-600 rounded-xl flex items-center justify-center">
-                <Heart className="w-6 h-6" />
+              <div className="w-10 h-10 sm:w-12 sm:h-12 bg-rose-100 text-rose-600 rounded-xl flex items-center justify-center">
+                <Heart className="w-5 h-5 sm:w-6 sm:h-6" />
               </div>
-              <span className="text-sm font-medium text-neutral-500">Motivation</span>
+              <span className="text-xs sm:text-sm font-medium text-neutral-500">Motivation</span>
             </motion.div>
 
             <motion.div 
               animate={{ y: [15, -15, 15], x: [-10, 10, -10], rotate: [3, -3, 3] }}
               transition={{ duration: 8, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
-              className="absolute top-20 right-20 bg-white p-6 rounded-2xl shadow-xl border border-neutral-100 flex flex-col items-center gap-3 w-32"
+              className="absolute top-10 right-0 sm:top-20 sm:right-20 bg-white p-4 sm:p-6 rounded-2xl shadow-xl border border-neutral-100 flex flex-col items-center gap-2 sm:gap-3 w-28 sm:w-32"
             >
-              <div className="w-12 h-12 bg-emerald-100 text-emerald-600 rounded-xl flex items-center justify-center">
-                <Utensils className="w-6 h-6" />
+              <div className="w-10 h-10 sm:w-12 sm:h-12 bg-emerald-100 text-emerald-600 rounded-xl flex items-center justify-center">
+                <Utensils className="w-5 h-5 sm:w-6 sm:h-6" />
               </div>
-              <span className="text-sm font-medium text-neutral-500">Workouts</span>
+              <span className="text-xs sm:text-sm font-medium text-neutral-500">Workouts</span>
             </motion.div>
           </div>
         </div>
