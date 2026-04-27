@@ -62,9 +62,9 @@ export function Hero() {
           <div className="relative w-full max-w-md aspect-[4/5] bg-white rounded-3xl p-2 shadow-2xl border border-neutral-100 rotate-1 hover:rotate-0 transition-transform duration-500">
              <div className="absolute inset-0 bg-gradient-to-br from-neutral-50 to-neutral-100 rounded-[22px] m-2 overflow-hidden flex items-center justify-center">
                 <img 
-                  src="https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?auto=format&fit=crop&q=80&w=800" 
-                  alt="Healthy lifestyle" 
-                  className="w-full h-full object-cover mix-blend-overlay opacity-80"
+                  src="https://appcdn.goqii.com/storeimg/39673_1777280043.png" 
+                  alt="GOQii Ecosystem" 
+                  className="w-full h-full object-cover"
                 />
                 
                 {/* Simulated UI overlay in the center */}

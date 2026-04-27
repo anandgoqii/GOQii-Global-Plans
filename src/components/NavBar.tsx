@@ -4,9 +4,9 @@ import { motion, AnimatePresence } from 'motion/react';
 import { Link } from 'react-router-dom';
 
 const NAV_LINKS = [
-  { name: 'Plans', href: '#' },
-  { name: 'How it Works', href: '#' },
-  { name: 'Success Stories', href: '#' },
+  { name: 'Plans', href: '/#plans' },
+  { name: 'How it Works', href: '/#how-it-works' },
+  { name: 'Success Stories', href: '/#success-stories' },
 ];
 
 export function NavBar() {
@@ -40,9 +40,9 @@ export function NavBar() {
               <a href="#" className="text-sm font-medium text-neutral-600 hover:text-neutral-900 transition-colors">
                 Log in
               </a>
-              <button className="bg-neutral-900 text-white hover:bg-neutral-800 px-5 py-2 rounded-lg text-sm font-medium transition-colors">
+              <a href="/#plans" className="bg-neutral-900 text-white hover:bg-neutral-800 px-5 py-2 rounded-lg text-sm font-medium transition-colors">
                 Get Started
-              </button>
+              </a>
             </div>
           </div>
 
@@ -84,9 +84,9 @@ export function NavBar() {
                 >
                   Log in
                 </a>
-                <button className="w-full text-center bg-neutral-900 text-white hover:bg-neutral-800 px-5 py-3 rounded-xl text-base font-medium transition-colors">
+                <a href="/#plans" className="w-full text-center bg-neutral-900 text-white hover:bg-neutral-800 px-5 py-3 rounded-xl text-base font-medium transition-colors block">
                   Get Started
-                </button>
+                </a>
               </div>
             </div>
           </motion.div>

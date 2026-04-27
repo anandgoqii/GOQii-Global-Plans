@@ -19,7 +19,7 @@ export function RealTimeAndResults() {
 
   return (
     <section className="bg-white">
-      <div className="py-24 px-4 bg-neutral-50/50">
+      <div id="success-stories" className="py-24 px-4 bg-neutral-50/50">
         <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-16 items-center">
            <div>
              <h2 className="text-3xl sm:text-4xl font-semibold text-neutral-900 tracking-tight mb-4">

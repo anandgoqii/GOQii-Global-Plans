@@ -33,7 +33,7 @@ export function HealthSystem() {
     .slice(0, 3); // Render top 3 plans as requested
 
   return (
-    <section className="py-24 bg-neutral-50 px-4">
+    <section id="plans" className="py-24 bg-neutral-50 px-4">
       <div className="max-w-7xl mx-auto">
         <div className="text-center max-w-2xl mx-auto mb-16">
           <h2 className="text-3xl sm:text-4xl font-semibold text-neutral-900 tracking-tight mb-4">
