@@ -6,7 +6,7 @@ export function Hero() {
   const { preferences } = usePreferences();
 
   return (
-    <section className="relative overflow-hidden min-h-[600px] flex items-center bg-white px-4 py-20 lg:py-32">
+    <section className="relative overflow-hidden min-h-[700px] md:min-h-[600px] flex items-end md:items-center bg-white px-4 py-16 md:py-32">
       {/* Background Image */}
       <div className="absolute inset-0 z-0">
         {/* Mobile Background */}
@@ -23,14 +23,16 @@ export function Hero() {
           className="hidden md:block w-full h-full object-cover"
           referrerPolicy="no-referrer"
         />
-        {/* Light overlay for readability */}
-        <div className="absolute inset-0 bg-white/25 lg:bg-gradient-to-r lg:from-white/55 lg:via-white/30 lg:to-transparent"></div>
+        {/* Dynamic overlay for readability */}
+        <div className="absolute inset-0 bg-white/10 md:bg-white/25 lg:bg-gradient-to-r lg:from-white/55 lg:via-white/30 lg:to-transparent"></div>
+        {/* Bottom-to-top gradient for mobile to make bottom-aligned text pop */}
+        <div className="absolute inset-0 bg-gradient-to-t from-white/90 via-white/40 to-transparent block md:hidden"></div>
       </div>
 
-      <div className="max-w-7xl mx-auto relative z-10 w-full">
+      <div className="max-w-7xl mx-auto relative z-10 w-full mb-8 md:mb-0">
         <motion.div
-          initial={{ opacity: 0, x: -30 }}
-          animate={{ opacity: 1, x: 0 }}
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
           className="max-w-3xl text-left"
         >
