@@ -1,25 +1,29 @@
 import { Smartphone, Activity, Utensils, BarChart, Heart, ArrowRight } from 'lucide-react';
 import { motion } from 'motion/react';
+import { useTranslation } from 'react-i18next';
 
 export function ScatteredVsSimple() {
+  const { t, i18n } = useTranslation();
+  const isRtl = i18n.dir() === 'rtl';
+
   return (
     <section className="bg-neutral-50 py-24 px-4 overflow-hidden">
       <div className="max-w-7xl mx-auto">
         
         {/* Problem Section */}
         <div className="grid lg:grid-cols-2 gap-16 items-center mb-32">
-          <div>
+          <div className={isRtl ? 'text-right' : 'text-left'}>
             <h2 className="text-4xl sm:text-5xl font-semibold text-neutral-900 tracking-tight leading-[1.1] mb-6">
-              Your health is scattered across too many apps
+              {t('scattered.title')}
             </h2>
             <div className="space-y-4 text-xl text-neutral-600 font-medium mb-8">
-              <p>One app for workouts.</p>
-              <p>One for diet.</p>
-              <p>One for reports.</p>
-              <p>One for motivation.</p>
+              <p>{t('scattered.problem_desc1')}</p>
+              <p>{t('scattered.problem_desc2')}</p>
+              <p>{t('scattered.problem_desc3')}</p>
+              <p>{t('scattered.problem_desc4')}</p>
             </div>
             <p className="text-xl text-rose-600 font-semibold bg-rose-50 inline-block px-4 py-2 rounded-lg">
-              Nothing works together. Progress gets lost.
+              {t('scattered.problem_footer')}
             </p>
           </div>
           
@@ -34,7 +38,7 @@ export function ScatteredVsSimple() {
               <div className="w-10 h-10 sm:w-12 sm:h-12 bg-blue-100 text-blue-600 rounded-xl flex items-center justify-center">
                 <Activity className="w-5 h-5 sm:w-6 sm:h-6" />
               </div>
-              <span className="text-xs sm:text-sm font-medium text-neutral-500">Diet</span>
+              <span className="text-xs sm:text-sm font-medium text-neutral-500">{t('scattered.diet')}</span>
             </motion.div>
 
             <motion.div 
@@ -45,7 +49,7 @@ export function ScatteredVsSimple() {
               <div className="w-10 h-10 sm:w-12 sm:h-12 bg-purple-100 text-purple-600 rounded-xl flex items-center justify-center">
                 <BarChart className="w-5 h-5 sm:w-6 sm:h-6" />
               </div>
-              <span className="text-xs sm:text-sm font-medium text-neutral-500">Reports</span>
+              <span className="text-xs sm:text-sm font-medium text-neutral-500">{t('scattered.reports')}</span>
             </motion.div>
             
             <motion.div 
@@ -56,7 +60,7 @@ export function ScatteredVsSimple() {
               <div className="w-10 h-10 sm:w-12 sm:h-12 bg-rose-100 text-rose-600 rounded-xl flex items-center justify-center">
                 <Heart className="w-5 h-5 sm:w-6 sm:h-6" />
               </div>
-              <span className="text-xs sm:text-sm font-medium text-neutral-500">Motivation</span>
+              <span className="text-xs sm:text-sm font-medium text-neutral-500">{t('scattered.motivation')}</span>
             </motion.div>
 
             <motion.div 
@@ -67,7 +71,7 @@ export function ScatteredVsSimple() {
               <div className="w-10 h-10 sm:w-12 sm:h-12 bg-emerald-100 text-emerald-600 rounded-xl flex items-center justify-center">
                 <Utensils className="w-5 h-5 sm:w-6 sm:h-6" />
               </div>
-              <span className="text-xs sm:text-sm font-medium text-neutral-500">Workouts</span>
+              <span className="text-xs sm:text-sm font-medium text-neutral-500">{t('scattered.workouts')}</span>
             </motion.div>
           </div>
         </div>
@@ -78,13 +82,13 @@ export function ScatteredVsSimple() {
             <Smartphone className="w-8 h-8" />
           </div>
           <h2 className="text-4xl sm:text-5xl font-semibold text-neutral-900 tracking-tight leading-[1.1] mb-6">
-            GOQii brings it all together
+            {t('scattered.solution_title')}
           </h2>
           <p className="text-2xl text-neutral-600 font-medium mb-6">
-            Everything works as one—so your health finally makes sense.
+            {t('scattered.solution_desc1')}
           </p>
           <p className="text-lg text-emerald-600 bg-emerald-50 inline-block px-6 py-3 rounded-full font-medium">
-            No switching. No confusion. Just one app that does it all.
+            {t('scattered.solution_desc2')}
           </p>
         </div>
 
@@ -92,32 +96,32 @@ export function ScatteredVsSimple() {
         <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
            <div className="bg-white p-8 rounded-3xl border border-neutral-200 shadow-sm relative overflow-hidden">
              <div className="absolute top-0 left-0 w-full h-2 bg-neutral-200"></div>
-             <h3 className="text-sm font-bold uppercase tracking-widest text-neutral-400 mb-6">Before</h3>
-             <ul className="space-y-4">
-               <li className="flex items-center gap-3 text-neutral-500 font-medium">
-                 <span className="w-2 h-2 rounded-full bg-rose-400"></span> Multiple apps
+             <h3 className={`text-sm font-bold uppercase tracking-widest text-neutral-400 mb-6 ${isRtl ? 'text-right' : 'text-left'}`}>{t('scattered.before_title')}</h3>
+             <ul className={`space-y-4 ${isRtl ? 'text-right' : 'text-left'}`}>
+               <li className={`flex items-center gap-3 text-neutral-500 font-medium ${isRtl ? 'flex-row-reverse' : ''}`}>
+                 <span className="w-2 h-2 rounded-full bg-rose-400"></span> {t('scattered.before_item1')}
                </li>
-               <li className="flex items-center gap-3 text-neutral-500 font-medium">
-                 <span className="w-2 h-2 rounded-full bg-rose-400"></span> Disconnected data
+               <li className={`flex items-center gap-3 text-neutral-500 font-medium ${isRtl ? 'flex-row-reverse' : ''}`}>
+                 <span className="w-2 h-2 rounded-full bg-rose-400"></span> {t('scattered.before_item2')}
                </li>
-               <li className="flex items-center gap-3 text-neutral-500 font-medium">
-                 <span className="w-2 h-2 rounded-full bg-rose-400"></span> No clear progress
+               <li className={`flex items-center gap-3 text-neutral-500 font-medium ${isRtl ? 'flex-row-reverse' : ''}`}>
+                 <span className="w-2 h-2 rounded-full bg-rose-400"></span> {t('scattered.before_item3')}
                </li>
              </ul>
            </div>
            
            <div className="bg-neutral-900 p-8 rounded-3xl shadow-xl relative overflow-hidden text-white">
              <div className="absolute top-0 left-0 w-full h-2 bg-emerald-500"></div>
-             <h3 className="text-sm font-bold uppercase tracking-widest text-emerald-400 mb-6">After</h3>
-             <ul className="space-y-4">
-               <li className="flex items-center gap-3 text-white font-medium">
-                 <span className="w-2 h-2 rounded-full bg-emerald-400 shadow-[0_0_10px_rgba(52,211,153,0.8)]"></span> One app
+             <h3 className={`text-sm font-bold uppercase tracking-widest text-emerald-400 mb-6 ${isRtl ? 'text-right' : 'text-left'}`}>{t('scattered.after_title')}</h3>
+             <ul className={`space-y-4 ${isRtl ? 'text-right' : 'text-left'}`}>
+               <li className={`flex items-center gap-3 text-white font-medium ${isRtl ? 'flex-row-reverse' : ''}`}>
+                 <span className="w-2 h-2 rounded-full bg-emerald-400 shadow-[0_0_10px_rgba(52,211,153,0.8)]"></span> {t('scattered.after_item1')}
                </li>
-               <li className="flex items-center gap-3 text-white font-medium">
-                 <span className="w-2 h-2 rounded-full bg-emerald-400 shadow-[0_0_10px_rgba(52,211,153,0.8)]"></span> Everything connected
+               <li className={`flex items-center gap-3 text-white font-medium ${isRtl ? 'flex-row-reverse' : ''}`}>
+                 <span className="w-2 h-2 rounded-full bg-emerald-400 shadow-[0_0_10px_rgba(52,211,153,0.8)]"></span> {t('scattered.after_item2')}
                </li>
-               <li className="flex items-center gap-3 text-white font-medium">
-                 <span className="w-2 h-2 rounded-full bg-emerald-400 shadow-[0_0_10px_rgba(52,211,153,0.8)]"></span> Clear improvement
+               <li className={`flex items-center gap-3 text-white font-medium ${isRtl ? 'flex-row-reverse' : ''}`}>
+                 <span className="w-2 h-2 rounded-full bg-emerald-400 shadow-[0_0_10px_rgba(52,211,153,0.8)]"></span> {t('scattered.after_item3')}
                </li>
              </ul>
            </div>

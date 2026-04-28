@@ -1,7 +1,7 @@
 import { createContext, useContext, useState, ReactNode } from 'react';
 
-type CountryCode = 'US' | 'IN' | 'UK' | 'AE' | 'OTHER';
-type LanguageCode = 'EN' | 'ES' | 'HI' | 'AR';
+type CountryCode = 'US' | 'IN' | 'UK' | 'AE' | 'HK' | 'CN' | 'SG' | 'VN' | 'MY' | 'DE' | 'FR' | 'IT' | 'ES' | 'SA' | 'QA' | 'OTHER';
+type LanguageCode = 'EN' | 'ES' | 'HI' | 'AR' | 'ZH';
 
 interface Preferences {
   country: CountryCode;

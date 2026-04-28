@@ -1,0 +1,494 @@
+import i18n from 'i18next';
+import { initReactI18next } from 'react-i18next';
+import LanguageDetector from 'i18next-browser-languagedetector';
+
+const resources = {
+  en: {
+    translation: {
+      nav: {
+        plans: "Plans",
+        how_it_works: "How it Works",
+        success_stories: "Success Stories",
+        login: "Log in",
+        get_started: "Get Started"
+      },
+      hero: {
+        title: "Everything your health needs.",
+        highlight: "One simple app.",
+        subtitle: "Track, eat, move, improve, and stay motivated—all in one place.\nNo switching apps. No scattered data. Just real results.",
+        cta_start: "Start Your Plan",
+        cta_explore: "Explore Plans",
+        pricing_tailored: "Plans and pricing tailored for"
+      },
+      scattered: {
+        title: "Your health is scattered across too many apps",
+        diet: "Diet",
+        reports: "Reports",
+        motivation: "Motivation",
+        workouts: "Workouts",
+        problem_desc1: "One app for workouts.",
+        problem_desc2: "One for diet.",
+        problem_desc3: "One for reports.",
+        problem_desc4: "One for motivation.",
+        problem_footer: "Nothing works together. Progress gets lost.",
+        solution_title: "GOQii brings it all together",
+        solution_desc1: "Everything works as one—so your health finally makes sense.",
+        solution_desc2: "No switching. No confusion. Just one app that does it all.",
+        before_title: "Before",
+        before_item1: "Multiple apps",
+        before_item2: "Disconnected data",
+        before_item3: "No clear progress",
+        after_title: "After",
+        after_item1: "One app",
+        after_item2: "Everything connected",
+        after_item3: "Clear improvement"
+      },
+      features: {
+        title: "Everything you need.\nWorking together.",
+        subtitle: "Not separate tools—one connected experience.",
+        activity_title: "Activity Tracking",
+        activity_copy: "Steps, sleep, and daily movement—all tracked automatically.",
+        activity_micro: "Your activity shapes your daily plan.",
+        nutrition_title: "Personalized Nutrition",
+        nutrition_copy: "Meal plans and guidance tailored to you.",
+        nutrition_micro: "Your meals adapt to your activity.",
+        fitness_title: "Workouts & Fitness",
+        fitness_copy: "Guided workouts designed for your goals.",
+        fitness_micro: "Your workouts adjust as you improve.",
+        expert_title: "Expert Coaching",
+        expert_copy: "Real humans guiding and motivating you.",
+        expert_micro: "Your coach tracks your progress.",
+        chronic_title: "Chronic Care Support",
+        chronic_copy: "Structured support for long-term conditions.",
+        chronic_micro: "Your plan adapts to your health needs.",
+        rewards_title: "Wellness Rewards",
+        rewards_copy: "Earn rewards for staying consistent.",
+        rewards_micro: "Your effort gets rewarded.",
+        summary_title: "It all works together",
+        summary_copy: "Your activity, meals, sleep, and coaching are all connected. So every step you take moves you forward.",
+        summary_footer: "No gaps. No guesswork. Just steady progress."
+      },
+      how_it_works: {
+        section_title: "Simple. Connected. Effective.",
+        step1_title: "Track your daily habits",
+        step1_desc: "Connect your devices or log manually.",
+        step2_title: "Get personalized insights",
+        step2_desc: "Understand how your habits connect.",
+        step3_title: "Follow your plan",
+        step3_desc: "Complete daily tasks curated for you.",
+        step4_title: "Improve continuously",
+        step4_desc: "See real progress over time."
+      },
+      plans: {
+        title: "Choose Your Health System",
+        subtitle: "Programs designed for your goals and lifestyle",
+        all: "All Plans",
+        lifestyle: "Lifestyle",
+        mental: "Mental Well-being",
+        chronic: "Chronic Care",
+        monthly: "Monthly",
+        annual: "Annual",
+        save: "Save 20%",
+        per_mo: "/ mo",
+        billed_yearly: "Billed yearly",
+        byod: "Works with your device (BYOD)",
+        view_details: "View Details",
+        coming_soon: "Plans Coming Soon in Your Region",
+        coming_soon_desc: "We're expanding globally. Please check back soon or switch your location.",
+        change_country: "Change Country",
+        not_sure: "Not sure which plan is right for you?",
+        find_my_plan: "Find My Plan",
+        explore_all: "Explore All Plans"
+      },
+      connected: {
+        hub_title: "Your Health,\nFully Connected",
+        hub_desc: "Your activity, meals, sleep, and coaching all work together—so every step you take leads to real progress.",
+        central_hub: "Central Hub",
+        byod_badge: "Bring Your Own Device (BYOD)",
+        byod_title: "Works With Your\nExisting Devices",
+        byod_desc: "No mandatory hardware required. All your data, unified in one place.",
+        apple: "Apple Health",
+        google: "Google Fit",
+        wearables: "Wearables",
+        manual: "Manual tracking",
+        btn_integrations: "View Compatible Integrations",
+        synced: "Synced",
+        just_now: "Just now"
+      },
+      compare: {
+        title: "Compare and Secure Your Health",
+        desc: "Structured systems designed to help you reach your goals.",
+        btn_secure: "Secure Your Plan",
+        trusted_title: "Trusted by millions worldwide",
+        trusted_desc: "Your health data is private, secure, and encrypted.",
+        secure_badge: "Secure Checkout",
+        encrypted: "256-bit Encryption",
+        iso: "ISO 27001 Certified",
+        hipaa: "HIPAA Compliant",
+        table_title: "Compare Plans",
+        table_desc: "All plans include the same app experience.\nThe difference is how much support and guidance you get.",
+        feature: "Feature",
+        plan1: "Care & Control",
+        plan2: "Fitness & Weight",
+        plan3: "Stress & Sleep",
+        sec1: "Included in all plans",
+        sec2: "Level of support",
+        sec3: "Best suited for",
+        sec4: "Experience",
+        f1: "Activity Tracking",
+        f2: "Sleep Tracking",
+        f3: "Basic Insights",
+        f4: "App Access",
+        f5: "Device Support",
+        f6: "Coach Guidance",
+        f7: "Doctor Support",
+        f8: "Personalized Plans",
+        f9: "Priority Support",
+        f10: "Chronic Conditions",
+        f11: "Weight & Fitness",
+        f12: "Stress & Sleep",
+        f13: "Type of Support",
+        f14: "Check-ins",
+        f15: "Progress Tracking",
+        v1: "BYOD",
+        v2: "Full Care",
+        v3: "Guided",
+        v4: "Self-paced",
+        v5: "Frequent",
+        v6: "Regular",
+        v7: "Light",
+        v8: "Advanced",
+        v9: "Standard",
+        v10: "Basic",
+        footer_promo: "No matter which plan you choose, everything stays connected—\nyour activity, meals, sleep, and progress all work together in one app.",
+        protection_title: "Your data stays protected",
+        protection_footer: "Security and privacy based on your region."
+      },
+      results: {
+        title: "Not just tracking. Real progress.",
+        subtitle: "When everything works together, you don’t just track your health—you improve it.",
+        metric1: "Better habits",
+        metric2: "More consistency",
+        metric3: "Visible results",
+        metric4: "Long-term improvement",
+        people_title: "Real people. Real results.",
+        result1: "Improved fitness",
+        result2: "Better nutrition",
+        result3: "Reduced stress",
+        result4: "More consistency",
+        cta_success: "See Success Stories"
+      },
+      cta: {
+        footer_title: "Start your journey today",
+        footer_subtitle: "One app. Everything connected. Real results.",
+        footer_btn: "Start Your Plan"
+      },
+      footer: {
+        rights: "All rights reserved.",
+        terms: "Terms",
+        privacy: "Privacy",
+        support: "Support",
+        submit: "Change Country"
+      },
+      chronic_page: {
+        avail_title: "Plans not available in your region yet",
+        avail_desc: "We’re expanding globally. Try another location.",
+        btn_change: "Change Country"
+      },
+      chronic_hero: {
+        badge: "Specialized Care",
+        title: "Total Control Over\nYour Health Journey",
+        desc: "Structured systems designed for chronic condition management, connecting your clinical needs with daily lifestyle tracking.",
+        btn: "Start Your Care Plan"
+      },
+      chronic_features: {
+        title: "Clinical Excellence\nMeets Daily Care",
+        desc: "Everything working together to manage your health.",
+        item1: "Expert Medical Guidance",
+        desc1: "Certified doctors and coaches specialized in clinical management.",
+        item2: "Continuous Monitoring",
+        desc2: "Stay connected with real-time tracking of vital metrics.",
+        item3: "Structured Support",
+        desc3: "Daily tasks and reminders designed for your specific condition.",
+        item4: "Resource Center",
+        desc4: "Comprehensive library of expert-vetted health content."
+      }
+    }
+  },
+  ar: {
+    translation: {
+      nav: {
+        plans: "الخطط",
+        how_it_works: "كيف يعمل",
+        success_stories: "قصص النجاح",
+        login: "تسجيل الدخول",
+        get_started: "ابدأ الآن"
+      },
+      hero: {
+        title: "كل ما تحتاجه صحتك.",
+        highlight: "تطبيق واحد بسيط.",
+        subtitle: "تتبع، تناول الطعام، تحرك، تحسن، وابقَ متحفزاً - كل ذلك في مكان واحد.\nلا داعي لتبديل التطبيقات. لا بيانات مشتتة. فقط نتائج حقيقية.",
+        cta_start: "ابدأ خطتك",
+        cta_explore: "استكشف الخطط",
+        pricing_tailored: "الخطط والأسعار مخصصة لـ"
+      },
+      scattered: {
+        title: "صحتك مشتتة عبر الكثير من التطبيقات",
+        diet: "النظام الغذائي",
+        reports: "التقارير",
+        motivation: "التحفيز",
+        workouts: "التمارين",
+        problem_desc1: "تطبيق واحد للتمارين.",
+        problem_desc2: "آخر للنظام الغذائي.",
+        problem_desc3: "ثالث للتقارير.",
+        problem_desc4: "رابع للتحفيز.",
+        problem_footer: "لا شيء يعمل معاً. التقدم يضيع.",
+        solution_title: "GOQii يجمع كل شيء معاً",
+        solution_desc1: "كل شيء يعمل كواحد - لذا فإن صحتك أخيراً تصبح منطقية.",
+        solution_desc2: "لا تبديل. لا ارتباك. تطبيق واحد فقط يفعل كل شيء.",
+        before_title: "قبل",
+        before_item1: "تطبيقات متعددة",
+        before_item2: "بيانات منفصلة",
+        before_item3: "لا تقدم واضح",
+        after_title: "بعد",
+        after_item1: "تطبيق واحد",
+        after_item2: "كل شيء متصل",
+        after_item3: "تحسن واضح"
+      },
+      features: {
+        title: "كل ما تحتاجه.\nيعمل بشكل متكامل.",
+        subtitle: "ليست مجرد أدوات منفصلة - بل تجربة واحدة متصلة.",
+        activity_title: "تتبع النشاط",
+        activity_copy: "الخطوات، النوم، والحركة اليومية - يتم تتبعها تلقائياً.",
+        activity_micro: "نشاطك يشكل خطتك اليومية.",
+        nutrition_title: "تغذية مخصصة",
+        nutrition_copy: "خطط وجبات وإرشادات مصممة خصيصاً لك.",
+        nutrition_micro: "وجباتك تتكيف مع نشاطك.",
+        fitness_title: "تمارين ولياقة",
+        fitness_copy: "تمارين موجهة مصممة لأهدافك.",
+        fitness_micro: "تمارينك تتكيف مع تحسن مستواك.",
+        expert_title: "تدريب الخبراء",
+        expert_copy: "بشر حقيقيون يقومون بإرشادك وتحفيزك.",
+        expert_micro: "مدربك يتابع تقدمك.",
+        chronic_title: "دعم الرعاية المزمنة",
+        chronic_copy: "دعم هيكلي للحالات الصحية طويلة الأمد.",
+        chronic_micro: "خطتك تتكيف مع احتياجاتك الصحية.",
+        rewards_title: "مكافآت العافية",
+        rewards_copy: "احصل على مكافآت مقابل الحفاظ على استمراريتك.",
+        rewards_micro: "جهدك يتم مكافأته.",
+        summary_title: "كل شيء يعمل معاً",
+        summary_copy: "نشاطك، وجباتك، نومك، وتدريبك كلها متصلة. لذا فإن كل خطوة تخطوها تقربك من هدفك.",
+        summary_footer: "لا فجوات. لا تخمين. فقط تقدم مستمر."
+      },
+      how_it_works: {
+        section_title: "بسيط. متصل. فعال.",
+        step1_title: "تتبع عاداتك اليومية",
+        step1_desc: "قم بتوصيل أجهزتك أو سجل يدوياً.",
+        step2_title: "احصل على رؤى مخصصة",
+        step2_desc: "افهم كيف ترتبط عاداتك ببعضها البعض.",
+        step3_title: "اتبع خطتك",
+        step3_desc: "أكمل المهام اليومية المنسقة لك.",
+        step4_title: "تحسن باستمرار",
+        step4_desc: "شاهد تقدماً حقيقياً بمرور الوقت."
+      },
+      plans: {
+        title: "اختر نظامك الصحي",
+        subtitle: "برامج مصممة لأهدافك وأسلوب حياتك",
+        all: "جميع الخطط",
+        lifestyle: "أسلوب الحياة",
+        mental: "الصحة النفسية",
+        chronic: "الرعاية المزمنة",
+        monthly: "شهرياً",
+        annual: "سنوياً",
+        save: "وفر 20%",
+        per_mo: "/ شهر",
+        billed_year: "يتم الفاتورة سنوياً بـ",
+        byod: "يعمل مع جهازك الخاص (BYOD)",
+        view_details: "عرض التفاصيل",
+        coming_soon: "الخطط قادمة قريباً في منطقتك",
+        coming_soon_desc: "نحن نتوسع عالمياً. يرجى العودة قريباً أو تغيير موقعك.",
+        change_country: "تغيير الدولة",
+        not_sure: "لست متأكداً أي خطة تناسبك؟",
+        find_my_plan: "جد خطتي",
+        explore_all: "استكشف جميع الخطط"
+      },
+      connected: {
+        hub_title: "صحتك،\nمتصلة بالكامل",
+        hub_desc: "نشاطك، وجباتك، نومك، وتدريك كلها تعمل معاً - لذا فإن كل خطوة تخطوها تؤدي إلى تقدم حقيقي.",
+        central_hub: "المركز الرئيسي",
+        byod_badge: "أحضر جهازك الخاص (BYOD)",
+        byod_title: "يعمل مع\nأجهزتك الحالية",
+        byod_desc: "لا حاجة لأجهزة إجبارية. جميع بياناتك موحدة في مكان واحد.",
+        apple: "Apple Health",
+        google: "Google Fit",
+        wearables: "الأجهزة القابلة للارتداء",
+        manual: "تتبع يدوي",
+        btn_integrations: "عرض التكاملات المتوافقة",
+        synced: "تم المزامنة",
+        just_now: "الآن"
+      },
+      compare: {
+        title: "قارن وأمن صحتك",
+        desc: "أنظمة منظمة مصممة لمساعدتك في الوصول إلى أهدافك.",
+        btn_secure: "أمن خطتك",
+        trusted_title: "موثوق من قبل الملايين حول العالم",
+        trusted_desc: "بياناتك الصحية خاصة، آمنة، ومسفرة.",
+        secure_badge: "دفع آمن",
+        encrypted: "تشفير 256 بت",
+        iso: "معتمد ISO 27001",
+        hipaa: "متوافق مع HIPAA",
+        table_title: "مقارنة الخطط",
+        table_desc: "تتضمن جميع الخطط نفس تجربة التطبيق.\nالفرق هو مقدار الدعم والتوجيه الذي تحصل عليه.",
+        feature: "الميزة",
+        plan1: "الرعاية والتحكم",
+        plan2: "اللياقة والوزن",
+        plan3: "التوتر والنوم",
+        sec1: "مشمول في جميع الخطط",
+        sec2: "مستوى الدعم",
+        sec3: "الأنسب لـ",
+        sec4: "التجربة",
+        f1: "تتبع النشاط",
+        f2: "تتبع النوم",
+        f3: "رؤى أساسية",
+        f4: "الوصول للتطبيق",
+        f5: "دعم الأجهزة",
+        f6: "توجيه المدرب",
+        f7: "دعم الطبيب",
+        f8: "خطط شخصية",
+        f9: "دعم الأولوية",
+        f10: "الحالات المزمنة",
+        f11: "الوزن واللياقة",
+        f12: "التوتر والنوم",
+        f13: "نوع الدعم",
+        f14: "المتابعات",
+        f15: "تتبع التقدم",
+        v1: "BYOD",
+        v2: "رعاية كاملة",
+        v3: "مُوجه",
+        v4: "ذاتي",
+        v5: "متكرر",
+        v6: "منتظم",
+        v7: "خفيف",
+        v8: "متقدم",
+        v9: "قياسي",
+        v10: "أساسي",
+        footer_promo: "بغض النظر عن الخطة التي تختارها، يبقى كل شيء متصلاً—\nنشاطك، وجباتك، نومك، وتقدمك كلها تعمل معاً في تطبيق واحد.",
+        protection_title: "بياناتك تبقى محمية",
+        protection_footer: "الأمن والخصوصية بناءً على منطقتك."
+      },
+      results: {
+        title: "ليس مجرد تتبع. تقدم حقيقي.",
+        subtitle: "عندما يعمل كل شيء معاً، فأنت لا تتبع صحتك فحسب - بل تحسنها.",
+        metric1: "عادات أفضل",
+        metric2: "مزيد من الاتساق",
+        metric3: "نتائج مرئية",
+        metric4: "تحسن طويل الأمد",
+        people_title: "أشخاص حقيقيون. نتائج حقيقية.",
+        result1: "لياقة محسنة",
+        result2: "تغذية أفضل",
+        result3: "ضغط أقل",
+        result4: "مزيد من الالتزام",
+        cta_success: "شاهد قصص النجاح"
+      },
+      cta: {
+        footer_title: "ابدأ رحلتك اليوم",
+        footer_subtitle: "تطبيق واحد. كل شيء متصل. نتائج حقيقية.",
+        footer_btn: "ابدأ خطتك"
+      },
+      footer: {
+        rights: "جميع الحقوق محفوظة.",
+        terms: "الشروط",
+        privacy: "الخصوصية",
+        support: "الدعم",
+        submit: "تغيير الدولة"
+      },
+      chronic_page: {
+        avail_title: "الخطط غير متوفرة في منطقتك حالياً",
+        avail_desc: "نحن نتوسع عالمياً. جرب موقعاً آخر.",
+        btn_change: "تغيير الدولة"
+      },
+      chronic_hero: {
+        badge: "رعاية متخصصة",
+        title: "التحكم الكامل في\nرحلتك الصحية",
+        desc: "أنظمة منظمة مصممة لإدارة الحالات المزمنة، وربط احتياجاتك السريرية بتتبع أسلوب حياتك اليومي.",
+        btn: "ابدأ خطة الرعاية الخاصة بك"
+      },
+      chronic_features: {
+        title: "التميز السريري\nيلتقي بالرعاية اليومية",
+        desc: "كل شيء يعمل معاً لإدارة صحتك.",
+        item1: "إرشاد طبي من الخبراء",
+        desc1: "أطباء ومدربون معتمدون متخصصون في الإدارة السريرية.",
+        item2: "مراقبة مستمرة",
+        desc2: "ابقَ متصلاً مع تتبع حي للمقاييس الحيوية في الوقت الحقيقي.",
+        item3: "دعم هيكلي",
+        desc3: "مهام يومية وتذكيرات مصممة لحالتك الصحية المحددة.",
+        item4: "مركز المصادر",
+        desc4: "مكتبة شاملة من محتوى صحي تم فحصه من قبل الخبراء."
+      }
+    }
+  },
+
+  zh: {
+    translation: {
+      nav: {
+        plans: "计划",
+        how_it_works: "工作原理",
+        success_stories: "成功案例",
+        login: "登录",
+        get_started: "立即开始"
+      },
+      hero: {
+        title: "健康所需，应有尽有。",
+        highlight: "一个简单的应用。",
+        subtitle: "追踪、饮食、运动、改进并保持动力——尽在一个地方。\n无需切换应用。没有分散的数据。只有真实的成果。",
+        cta_start: "开始你的计划",
+        cta_explore: "探索计划",
+        pricing_tailored: "为您量身定制的计划和价格"
+      },
+      features: {
+        title: "GOQii 生态系统",
+        subtitle: "专为帮助您实现目标而设计的综合健康管理系统。",
+        coaching: "智能指导",
+        coaching_desc: "认证健康专家根据您的数据提供个性化建议。",
+        tracking: "实时追踪",
+        tracking_desc: "连接您的设备，全天候监控您的生命体征。",
+        nutrition: "营养中心",
+        nutrition_desc: "记录饮食并立即获得热量和营养成分明细。"
+      },
+      footer: {
+        rights: "版权所有。",
+        terms: "服务条款",
+        privacy: "隐私政策",
+        support: "支持",
+        submit: "更改国家"
+      }
+    }
+  }
+};
+
+i18n
+  .use(LanguageDetector)
+  .use(initReactI18next)
+  .init({
+    resources,
+    fallbackLng: 'en',
+    supportedLngs: ['en', 'ar', 'zh'],
+    load: 'languageOnly',
+    interpolation: {
+      escapeValue: false,
+    }
+  });
+
+i18n.on('languageChanged', (lng) => {
+  const baseLng = lng.split('-')[0];
+  document.documentElement.dir = baseLng === 'ar' ? 'rtl' : 'ltr';
+  document.documentElement.lang = baseLng;
+});
+
+// Set initial direction and lang
+const initialLng = i18n.language || 'en';
+const baseInitialLng = initialLng.split('-')[0];
+document.documentElement.dir = baseInitialLng === 'ar' ? 'rtl' : 'ltr';
+document.documentElement.lang = baseInitialLng;
+
+export default i18n;

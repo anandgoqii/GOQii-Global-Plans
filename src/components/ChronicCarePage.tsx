@@ -8,10 +8,13 @@ import { ChronicFAQAndCTA } from './ChronicFAQ';
 import { useEffect, useState } from 'react';
 import { fetchPlans } from '../lib/api';
 import { Loader2 } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 
 export function ChronicCarePage() {
   const { preferences, setIsModalOpen } = usePreferences();
   const [hasPlans, setHasPlans] = useState<boolean | null>(null);
+  const { t, i18n } = useTranslation();
+  const isRtl = i18n.dir() === 'rtl';
 
   useEffect(() => {
     let mounted = true;
@@ -30,11 +33,11 @@ export function ChronicCarePage() {
 
   if (hasPlans === false) {
      return (
-       <div className="py-40 flex flex-col items-center justify-center px-4 text-center">
-         <h2 className="text-4xl font-bold mb-4 text-neutral-900 tracking-tight">Plans not available in your region yet</h2>
-         <p className="text-xl text-neutral-500 mb-10 max-w-sm font-medium">We’re expanding globally. Try another location.</p>
+       <div className={`py-40 flex flex-col items-center justify-center px-4 text-center ${isRtl ? 'text-right' : 'text-left lg:text-center'}`}>
+         <h2 className="text-4xl font-bold mb-4 text-neutral-900 tracking-tight">{t('chronic_page.avail_title')}</h2>
+         <p className="text-xl text-neutral-500 mb-10 max-w-sm font-medium">{t('chronic_page.avail_desc')}</p>
          <button onClick={() => setIsModalOpen(true)} className="bg-neutral-900 hover:bg-neutral-800 text-white px-8 py-4 rounded-xl font-bold transition-colors">
-           Change Country
+           {t('chronic_page.btn_change')}
          </button>
        </div>
      );
