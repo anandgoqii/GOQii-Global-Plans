@@ -8,14 +8,13 @@ export function ChronicHero() {
   const plan = usePlan('Chronic Care');
 
   return (
-    <section className="bg-neutral-50 pt-32 pb-24 overflow-hidden">
+    <section className="bg-neutral-50 pt-32 pb-24 overflow-hidden border-b border-neutral-100">
       <div className="max-w-7xl mx-auto px-6">
         <div className="grid lg:grid-cols-2 gap-20 items-center">
           <motion.div 
             initial={{ opacity: 0, x: -30 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6 }}
-            className="text-left"
           >
             <div className="inline-block px-4 py-1.5 rounded-full bg-blue-100 text-blue-800 text-xs font-bold mb-8 tracking-widest uppercase shadow-sm">
               Chronic Care
@@ -23,7 +22,7 @@ export function ChronicHero() {
             
             <h1 className="text-4xl sm:text-6xl lg:text-7xl font-semibold tracking-tighter text-neutral-900 mb-8 leading-[1.05]">
               Take control of <br />
-              <span className="text-blue-600">your health</span>.
+              <span className="text-[#007D69]">your health</span>.
             </h1>
             
             <p className="text-xl text-neutral-600 mb-12 max-w-lg leading-relaxed font-medium">
@@ -48,26 +47,20 @@ export function ChronicHero() {
             </div>
           </motion.div>
 
-          <motion.div 
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="relative"
-          >
-            <div className="aspect-[4/5] bg-neutral-200 rounded-[2.5rem] overflow-hidden relative border border-neutral-200 flex items-center justify-center group shadow-2xl">
-              <img 
-                src="https://appcdn.goqii.com/storeimg/76773_1777294554.png" 
-                className="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" 
-                alt="Healthcare professional" 
-                referrerPolicy="no-referrer"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
-              
-              {/* Decorative elements */}
-              <div className="absolute -bottom-10 -right-10 w-48 h-48 bg-blue-100 rounded-full -z-10 blur-3xl opacity-60 animate-pulse"></div>
-              <div className="absolute -top-10 -left-10 w-64 h-64 bg-emerald-100 rounded-full -z-10 blur-[5rem] opacity-60"></div>
-            </div>
-          </motion.div>
+          <div className="hidden lg:block relative text-right">
+             <div className="inline-block bg-white p-8 rounded-[2.5rem] shadow-2xl border border-neutral-100 relative z-10">
+                <div className="w-64 h-64 bg-blue-50 rounded-2xl flex items-center justify-center">
+                   <div className="text-center">
+                      <div className="text-4xl mb-2">📈</div>
+                      <p className="text-neutral-900 font-bold">Health Track</p>
+                      <p className="text-neutral-400 text-xs font-medium uppercase tracking-widest mt-1">Status Active</p>
+                   </div>
+                </div>
+             </div>
+             {/* Decorative Blobs */}
+             <div className="absolute -top-20 -right-20 w-64 h-64 bg-blue-200/30 rounded-full blur-3xl animate-pulse"></div>
+             <div className="absolute -bottom-20 -left-20 w-48 h-48 bg-emerald-200/20 rounded-full blur-3xl"></div>
+          </div>
         </div>
       </div>
     </section>
