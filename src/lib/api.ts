@@ -68,12 +68,31 @@ export async function fetchPlans(country: string): Promise<Plan[]> {
       // We will adjust pricing roughly based on country for demonstration
       const adjustedPlans = MOCK_PLANS.map(plan => {
         let multiplier = 1;
-        if (country === 'IN') multiplier = 80; // Rough conversion for demo
-        if (country === 'UK') multiplier = 0.8;
-        if (country === 'AE') multiplier = 3.67;
+        let image = plan.image;
+
+        if (country === 'IN') {
+          multiplier = 80;
+          if (plan.id === 'p1') image = 'https://appcdn.goqii.com/storeimg/39727_1777456782.png';
+        } else if (country === 'CN' || country === 'HK' || country === 'SG' || country === 'VN' || country === 'MY') {
+          multiplier = 80;
+          if (plan.id === 'p1') image = 'https://appcdn.goqii.com/storeimg/33014_1777456090.png';
+        }
+        if (country === 'UK' || country === 'DE' || country === 'FR' || country === 'IT' || country === 'ES') {
+          multiplier = 0.8;
+          if (plan.id === 'p1') image = 'https://appcdn.goqii.com/storeimg/96102_1777455808.png';
+        }
+        if (country === 'US') {
+          multiplier = 1;
+          if (plan.id === 'p1') image = 'https://appcdn.goqii.com/storeimg/74401_1777456050.png';
+        }
+        if (country === 'AE' || country === 'SA' || country === 'QA') {
+          multiplier = 3.67;
+          if (plan.id === 'p1') image = 'https://appcdn.goqii.com/storeimg/28715_1777455604.png';
+        }
 
         return {
           ...plan,
+          image,
           monthlyPrice: Math.round(plan.monthlyPrice * multiplier),
           annualPrice: Math.round(plan.annualPrice * multiplier)
         };

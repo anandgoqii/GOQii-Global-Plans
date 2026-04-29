@@ -1,7 +1,7 @@
 import { motion } from 'motion/react';
 import { useTranslation } from 'react-i18next';
 import { ArrowRight, Star, Heart, Activity, Dumbbell, Apple, Brain, Quote, UserCheck, Settings2, Sparkles, CheckCircle2 } from 'lucide-react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 
 export function SuccessStoriesPage() {
   const { t, i18n } = useTranslation();
@@ -37,27 +37,39 @@ export function SuccessStoriesPage() {
 
   const stories = [
     {
+      id: 'story1',
       name: t('success_stories.story1_name'),
       result: t('success_stories.story1_result'),
       quote: t('success_stories.story1_quote'),
-      image: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&q=80&w=400"
+      role: t('success_stories.story1_role'),
+      desc: t('success_stories.story1_desc'),
+      results: t('success_stories.story1_results'),
+      image: "https://appcdn.goqii.com/storeimg/37999_1646990776.jpg"
     },
     {
+      id: 'story2',
       name: t('success_stories.story2_name'),
       result: t('success_stories.story2_result'),
       quote: t('success_stories.story2_quote'),
-      image: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&q=80&w=400"
+      role: t('success_stories.story2_role'),
+      desc: t('success_stories.story2_desc'),
+      results: t('success_stories.story2_results'),
+      image: "https://appcdn.goqii.com/storeimg/10_1646990823.JPG"
     },
     {
+      id: 'story3',
       name: t('success_stories.story3_name'),
       result: t('success_stories.story3_result'),
       quote: t('success_stories.story3_quote'),
-      image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&q=80&w=400"
+      role: t('success_stories.story3_role'),
+      desc: t('success_stories.story3_desc'),
+      results: t('success_stories.story3_results'),
+      image: "https://appcdn.goqii.com/storeimg/19151_1648029263.jpg"
     }
   ];
 
   return (
-    <div className={`pt-24 pb-20 ${isRtl ? 'text-right' : 'text-left'}`}>
+    <div className={`pt-32 pb-20 ${isRtl ? 'text-right' : 'text-left'}`}>
       {/* Hero Section */}
       <section className="px-6 mb-24">
         <div className="max-w-4xl mx-auto text-center">
@@ -86,6 +98,74 @@ export function SuccessStoriesPage() {
           >
             {t('success_stories.subtitle')}
           </motion.p>
+        </div>
+      </section>
+
+      {/* Stories Section */}
+      <section className="px-6 mb-32">
+        <div className="max-w-7xl mx-auto">
+          <div className="flex items-center gap-4 mb-16">
+            <div className="h-px bg-neutral-200 flex-grow"></div>
+            <h2 className="text-2xl font-bold text-neutral-900 uppercase tracking-widest text-center px-4">
+              {t('success_stories.stories_title')}
+            </h2>
+            <div className="h-px bg-neutral-200 flex-grow"></div>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-10">
+            {stories.map((story, i) => (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.1 }}
+                className="group flex flex-col h-full bg-white rounded-[3rem] p-4 border border-neutral-50 shadow-sm hover:shadow-xl transition-all duration-500"
+              >
+                <div className="aspect-[4/5] rounded-[2.5rem] overflow-hidden mb-8 border border-neutral-100 shadow-xl group-hover:shadow-2xl transition-all duration-500">
+                  <img src={story.image} alt={story.name} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+                </div>
+                <div className="px-4 flex-grow flex flex-col">
+                  {/* Name & Role */}
+                  <div className="mb-4">
+                    <h3 className="text-2xl font-bold text-neutral-900 mb-1">{story.name}</h3>
+                    {story.role && <p className="text-neutral-500 text-sm font-bold uppercase tracking-widest mb-1">{story.role}</p>}
+                    <p className="text-blue-600 font-bold text-xs uppercase tracking-widest">{story.result}</p>
+                  </div>
+
+                  {/* Primary Quote */}
+                  <div className="relative mb-6">
+                    <Quote className={`absolute -top-4 ${isRtl ? '-right-4' : '-left-4'} w-10 h-10 text-neutral-100 -z-10`} />
+                    <p className="text-neutral-800 text-xl font-bold italic leading-tight">
+                      {story.quote}
+                    </p>
+                  </div>
+
+                  {/* Detailed Description */}
+                  {story.desc && (
+                    <p className="text-neutral-600 font-medium leading-relaxed mb-6">
+                      {story.desc}
+                    </p>
+                  )}
+
+                  {/* Results Section */}
+                  {story.results && (
+                    <div className="mt-auto pt-6 border-t border-neutral-100">
+                      <h4 className="text-[10px] font-black uppercase tracking-widest text-neutral-400 mb-3">Result</h4>
+                      <div className="text-sm text-neutral-700 font-medium space-y-2">
+                        {story.results.split('\n').map((line, idx) => (
+                          <div key={idx} className="flex gap-2">
+                            <span className="text-blue-600">{line.startsWith('•') ? '' : '•'}</span>
+                            <span>{line}</span>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  )}
+                </div>
+              </motion.div>
+            ))}
+          </div>
         </div>
       </section>
 
@@ -157,43 +237,6 @@ export function SuccessStoriesPage() {
         </div>
       </section>
 
-      {/* Stories Section */}
-      <section className="px-6 mb-32">
-        <div className="max-w-7xl mx-auto">
-          <div className="flex items-center gap-4 mb-16">
-            <div className="h-px bg-neutral-200 flex-grow"></div>
-            <h2 className="text-2xl font-bold text-neutral-900 uppercase tracking-widest text-center px-4">
-              {t('success_stories.stories_title')}
-            </h2>
-            <div className="h-px bg-neutral-200 flex-grow"></div>
-          </div>
-
-          <div className="grid md:grid-cols-3 gap-10">
-            {stories.map((story, i) => (
-              <motion.div
-                key={i}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.1 }}
-                className="group flex flex-col"
-              >
-                <div className="aspect-[4/5] rounded-[2.5rem] overflow-hidden mb-8 border border-neutral-100 shadow-xl group-hover:shadow-2xl transition-all duration-500">
-                  <img src={story.image} alt={story.name} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
-                </div>
-                <div className="px-4">
-                  <h3 className="text-2xl font-bold text-neutral-900 mb-1">{story.name}</h3>
-                  <p className="text-blue-600 font-bold mb-6 text-sm uppercase tracking-widest">{story.result}</p>
-                  <div className="relative">
-                    <Quote className={`absolute -top-4 ${isRtl ? '-right-4' : '-left-4'} w-8 h-8 text-neutral-100 -z-10`} />
-                    <p className="text-neutral-600 font-medium italic leading-relaxed italic">{story.quote}</p>
-                  </div>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
 
       {/* Footer CTA */}
       <section className="px-6 mb-12">
@@ -212,19 +255,19 @@ export function SuccessStoriesPage() {
           </h3>
 
           <div className={`flex flex-col sm:flex-row justify-center gap-6 relative z-10 ${isRtl ? 'sm:flex-row-reverse' : ''}`}>
-             <button 
-               onClick={() => navigate('/')}
+             <Link 
+               to="/#plans"
                className="px-10 py-5 bg-white text-blue-600 rounded-2xl font-bold hover:bg-blue-50 transition-all shadow-xl flex items-center justify-center gap-2 group"
               >
                {t('success_stories.cta_start')}
                <ArrowRight className={`w-5 h-5 group-hover:translate-x-1 transition-transform ${isRtl ? 'rotate-180' : ''}`} />
-             </button>
-             <button 
-               onClick={() => navigate('/')}
+             </Link>
+             <Link 
+               to="/#plans"
                className="px-10 py-5 bg-white/10 text-white rounded-2xl font-bold hover:bg-white/20 transition-all border border-white/20 backdrop-blur-sm"
              >
                {t('success_stories.cta_explore')}
-             </button>
+             </Link>
           </div>
         </div>
       </section>

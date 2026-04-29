@@ -2,7 +2,7 @@ import { ArrowRight } from 'lucide-react';
 import { usePreferences } from '../context/PreferencesContext';
 import { motion } from 'motion/react';
 import { useTranslation } from 'react-i18next';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 
 export function RealTimeAndResults() {
   const { t, i18n } = useTranslation();
@@ -95,9 +95,12 @@ export function FooterCTA() {
           <p className="text-xl text-neutral-400 mb-10 max-w-2xl mx-auto font-light">
             {t('cta.footer_subtitle')}
           </p>
-          <button className="bg-emerald-500 hover:bg-emerald-600 text-white px-10 py-5 rounded-2xl font-semibold text-lg transition-transform hover:scale-105 active:scale-95 shadow-[0_0_40px_rgba(16,185,129,0.3)]">
+          <Link 
+            to="/#plans"
+            className="bg-emerald-500 hover:bg-emerald-600 text-white px-10 py-5 rounded-2xl font-semibold text-lg transition-transform hover:scale-105 active:scale-95 shadow-[0_0_40px_rgba(16,185,129,0.3)] inline-block"
+          >
             {t('cta.footer_btn')}
-          </button>
+          </Link>
         </div>
       </section>
       

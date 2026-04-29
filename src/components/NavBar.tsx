@@ -27,8 +27,23 @@ export function NavBar() {
   const navLinks = [
     { name: t('nav.plans'), href: '/#plans' },
     { name: t('nav.how_it_works'), href: '/#how-it-works' },
-    { name: t('nav.success_stories'), href: '/#success-stories' },
+    { name: t('nav.success_stories'), href: '/success-stories' },
   ];
+
+  const handleLinkClick = (href: string) => {
+    setIsOpen(false);
+    if (href.startsWith('/#')) {
+      const id = href.replace('/#', '');
+      if (window.location.pathname === '/') {
+        const element = document.getElementById(id);
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth' });
+        }
+      }
+    } else if (href === window.location.pathname) {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  };
 
   return (
     <nav className="sticky top-0 z-40 bg-white/80 backdrop-blur-md border-b border-neutral-200">
@@ -36,7 +51,11 @@ export function NavBar() {
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <div className="flex-shrink-0 flex items-center">
-            <Link to="/" className="hover:opacity-80 transition-opacity">
+            <Link 
+              to="/" 
+              onClick={() => handleLinkClick('/')}
+              className="hover:opacity-80 transition-opacity"
+            >
               <img 
                 src="https://appcdn.goqii.com/storeimg/61311_1777280859.png" 
                 alt="GOQii" 
@@ -50,13 +69,14 @@ export function NavBar() {
           <div className="hidden md:flex items-center space-x-8">
             <div className="flex space-x-6">
               {navLinks.map((link) => (
-                <a
+                <Link
                   key={link.name}
-                  href={link.href}
+                  to={link.href}
+                  onClick={() => handleLinkClick(link.href)}
                   className="text-sm font-medium text-neutral-600 hover:text-neutral-900 transition-colors"
                 >
                   {link.name}
-                </a>
+                </Link>
               ))}
             </div>
 
@@ -97,9 +117,6 @@ export function NavBar() {
             </div>
 
             <div className="flex items-center space-x-4">
-              <a href="#" className="text-sm font-medium text-neutral-600 hover:text-neutral-900 transition-colors">
-                {t('nav.login')}
-              </a>
               <a href="/#plans" className="bg-neutral-900 text-white hover:bg-neutral-800 px-5 py-2 rounded-lg text-sm font-medium transition-colors">
                 {t('nav.get_started')}
               </a>
@@ -142,24 +159,23 @@ export function NavBar() {
           >
             <div className="px-4 py-4 space-y-3">
               {navLinks.map((link) => (
-                <a
+                <Link
                   key={link.name}
-                  href={link.href}
+                  to={link.href}
+                  onClick={() => handleLinkClick(link.href)}
                   className="block px-3 py-2 rounded-md text-base font-medium text-neutral-700 hover:text-neutral-900 hover:bg-neutral-50 transition-colors"
                 >
                   {link.name}
-                </a>
+                </Link>
               ))}
               <div className="border-t border-neutral-100 pt-4 pb-2 space-y-3">
-                 <a
-                  href="#"
-                  className="block px-3 py-2 rounded-md text-base font-medium text-neutral-700 hover:text-neutral-900 hover:bg-neutral-50 transition-colors"
+                <Link 
+                  to="/#plans" 
+                  onClick={() => handleLinkClick('/#plans')}
+                  className="w-full text-center bg-neutral-900 text-white hover:bg-neutral-800 px-5 py-3 rounded-xl text-base font-medium transition-colors block"
                 >
-                  {t('nav.login')}
-                </a>
-                <a href="/#plans" className="w-full text-center bg-neutral-900 text-white hover:bg-neutral-800 px-5 py-3 rounded-xl text-base font-medium transition-colors block">
                   {t('nav.get_started')}
-                </a>
+                </Link>
               </div>
             </div>
           </motion.div>

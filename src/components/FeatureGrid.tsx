@@ -7,14 +7,23 @@ export function FeatureGrid() {
   const { preferences } = usePreferences();
   const isRtl = i18n.dir() === 'rtl';
   const isMiddleEast = ['AE', 'SA', 'QA'].includes(preferences.country);
+  const isEurope = ['UK', 'DE', 'FR', 'IT', 'ES'].includes(preferences.country);
+  const isUS = preferences.country === 'US';
+  const isAsia = ['IN', 'HK', 'CN', 'SG', 'VN', 'MY'].includes(preferences.country);
+
+  const getActivityImage = () => {
+    if (isMiddleEast) return 'https://appcdn.goqii.com/storeimg/1781_1777455035.png';
+    if (isEurope) return 'https://appcdn.goqii.com/storeimg/61659_1777455169.png';
+    if (isUS) return 'https://appcdn.goqii.com/storeimg/74563_1777455152.png';
+    if (isAsia) return 'https://appcdn.goqii.com/storeimg/12027_1777455132.png';
+    return 'https://appcdn.goqii.com/storeimg/34165_1777294404.png';
+  };
 
   const FEATURES = [
     {
       icon: Activity,
       title: t('features.activity_title'),
-      image: preferences.country === 'IN'
-        ? 'https://appcdn.goqii.com/storeimg/90137_1777447283.png'
-        : 'https://appcdn.goqii.com/storeimg/34165_1777294404.png',
+      image: getActivityImage(),
       copy: t('features.activity_copy'),
       micro: t('features.activity_micro')
     },

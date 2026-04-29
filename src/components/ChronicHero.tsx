@@ -3,6 +3,7 @@ import { usePreferences } from '../context/PreferencesContext';
 import { usePlan } from '../hooks/usePlan';
 import { motion } from 'motion/react';
 import { useTranslation } from 'react-i18next';
+import { Link } from 'react-router-dom';
 
 export function ChronicHero() {
   const { preferences } = usePreferences();
@@ -10,12 +11,26 @@ export function ChronicHero() {
   const { t, i18n } = useTranslation();
   const isRtl = i18n.dir() === 'rtl';
 
+  const isMiddleEast = ['AE', 'SA', 'QA'].includes(preferences.country);
+  const isEurope = ['UK', 'DE', 'FR', 'IT', 'ES'].includes(preferences.country);
+  const isUS = preferences.country === 'US';
+  const isAsia = ['IN', 'HK', 'CN', 'SG', 'VN', 'MY'].includes(preferences.country);
+
+  const getHeroImage = () => {
+    if (preferences.country === 'IN') return 'https://appcdn.goqii.com/storeimg/1413_1777457145.png';
+    if (isUS) return 'https://appcdn.goqii.com/storeimg/1631_1777456888.png';
+    if (isEurope) return 'https://appcdn.goqii.com/storeimg/50644_1777456899.png';
+    if (isMiddleEast) return 'https://appcdn.goqii.com/storeimg/22909_1777456956.png';
+    if (isAsia) return 'https://appcdn.goqii.com/storeimg/79104_1777457011.png';
+    return 'https://appcdn.goqii.com/storeimg/86164_1777445047.png';
+  };
+
   return (
-    <section className="relative pt-32 pb-24 overflow-hidden border-b border-neutral-100 min-h-[700px] flex items-center">
+    <section className="relative pt-40 pb-24 md:pt-48 md:pb-32 overflow-hidden border-b border-neutral-100 min-h-[700px] flex items-center">
       {/* Background Image */}
       <div className="absolute inset-0 z-0">
         <img 
-          src="https://appcdn.goqii.com/storeimg/86164_1777445047.png" 
+          src={getHeroImage()} 
           className="w-full h-full object-cover"
           alt=""
           referrerPolicy="no-referrer"
@@ -43,13 +58,14 @@ export function ChronicHero() {
             </p>
 
             <div className={`flex flex-col sm:flex-row gap-5 ${isRtl ? 'sm:flex-row-reverse' : ''}`}>
-              <button 
+              <Link 
+                to="/#plans"
                 id="chronic-cta"
                 className="px-10 py-5 bg-neutral-900 text-white rounded-2xl font-bold hover:bg-neutral-800 transition-all flex items-center justify-center gap-2 group shadow-2xl"
               >
                 {t('chronic_hero.btn')} – {preferences.currency}{plan ? plan.monthlyPrice : '...'}/{t('plans.monthly')}
                 <ArrowRight className={`w-5 h-5 group-hover:translate-x-1 transition-transform ${isRtl ? 'rotate-180' : ''}`} />
-              </button>
+              </Link>
             </div>
             
             <div className={`mt-12 flex items-center gap-6 text-sm font-bold text-white/70 uppercase tracking-widest ${isRtl ? 'flex-row-reverse' : ''}`}>
