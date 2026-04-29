@@ -12,6 +12,7 @@ export function FeatureGrid() {
   const isAsia = ['IN', 'HK', 'CN', 'SG', 'VN', 'MY'].includes(preferences.country);
 
   const getActivityImage = () => {
+    if (preferences.country === 'IN') return 'https://appcdn.goqii.com/storeimg/22022_1777459873.png';
     if (isMiddleEast) return 'https://appcdn.goqii.com/storeimg/1781_1777455035.png';
     if (isEurope) return 'https://appcdn.goqii.com/storeimg/61659_1777455169.png';
     if (isUS) return 'https://appcdn.goqii.com/storeimg/74563_1777455152.png';
