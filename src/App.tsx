@@ -7,7 +7,6 @@ import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-route
 import { PreferencesProvider } from './context/PreferencesContext';
 import { TopBar } from './components/TopBar';
 import { NavBar } from './components/NavBar';
-import { PreferencesModal } from './components/PreferencesModal';
 import { HomePage } from './components/HomePage';
 import { ChronicCarePage } from './components/ChronicCarePage';
 import { SuccessStoriesPage } from './components/SuccessStoriesPage';
@@ -75,7 +74,6 @@ function AppContent() {
         <main className="flex-grow">
           <AnimatedRoutes />
         </main>
-        <PreferencesModal />
       </div>
     </Router>
   );

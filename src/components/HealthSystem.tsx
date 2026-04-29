@@ -59,13 +59,7 @@ export function HealthSystem() {
         ) : plans.length === 0 ? (
           <div className="text-center py-24 bg-white rounded-3xl border border-neutral-200">
             <h3 className="text-2xl font-bold text-neutral-900 mb-2">{t('plans.coming_soon')}</h3>
-            <p className="text-neutral-500 mb-8 max-w-sm mx-auto">{t('plans.coming_soon_desc')}</p>
-            <button 
-              onClick={() => setIsModalOpen(true)}
-              className="bg-neutral-900 hover:bg-neutral-800 text-white px-8 py-3.5 rounded-xl font-medium transition-colors"
-            >
-              {t('plans.change_country')}
-            </button>
+            <p className="text-neutral-500 max-w-sm mx-auto">{t('plans.coming_soon_desc')}</p>
           </div>
         ) : (
           <>
