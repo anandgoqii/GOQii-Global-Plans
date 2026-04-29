@@ -2,9 +2,11 @@ import { ArrowRight } from 'lucide-react';
 import { usePreferences } from '../context/PreferencesContext';
 import { motion } from 'motion/react';
 import { useTranslation } from 'react-i18next';
+import { useNavigate } from 'react-router-dom';
 
 export function RealTimeAndResults() {
   const { t, i18n } = useTranslation();
+  const navigate = useNavigate();
   const isRtl = i18n.dir() === 'rtl';
 
   const metrics = [
@@ -27,10 +29,10 @@ export function RealTimeAndResults() {
         <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-16 items-center">
            <div className={isRtl ? 'text-right' : 'text-left'}>
              <h2 className="text-3xl sm:text-4xl font-semibold text-neutral-900 tracking-tight mb-4">
-               {t('results.title')}
+                {t('results.title')}
              </h2>
              <p className="text-lg text-neutral-500 mb-12">
-               {t('results.subtitle')}
+                {t('results.subtitle')}
              </p>
              
              <div className="grid grid-cols-2 gap-4">
@@ -63,7 +65,10 @@ export function RealTimeAndResults() {
                 ))}
               </ul>
               
-              <button className="bg-white text-neutral-900 px-6 py-3 rounded-xl font-medium transition-colors hover:bg-neutral-100 relative z-10 w-full sm:w-auto text-center">
+              <button 
+                onClick={() => navigate('/success-stories')}
+                className="bg-white text-neutral-900 px-6 py-3 rounded-xl font-medium transition-colors hover:bg-neutral-100 relative z-10 w-full sm:w-auto text-center"
+              >
                 {t('results.cta_success')}
               </button>
            </div>

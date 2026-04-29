@@ -10,6 +10,7 @@ import { NavBar } from './components/NavBar';
 import { PreferencesModal } from './components/PreferencesModal';
 import { HomePage } from './components/HomePage';
 import { ChronicCarePage } from './components/ChronicCarePage';
+import { SuccessStoriesPage } from './components/SuccessStoriesPage';
 
 function AppContent() {
   return (
@@ -21,6 +22,7 @@ function AppContent() {
           <Routes>
             <Route path="/" element={<HomePage />} />
             <Route path="/chronic-care" element={<ChronicCarePage />} />
+            <Route path="/success-stories" element={<SuccessStoriesPage />} />
           </Routes>
         </main>
         <PreferencesModal />

@@ -12,7 +12,9 @@ export function FeatureGrid() {
     {
       icon: Activity,
       title: t('features.activity_title'),
-      image: 'https://appcdn.goqii.com/storeimg/34165_1777294404.png',
+      image: preferences.country === 'IN'
+        ? 'https://appcdn.goqii.com/storeimg/90137_1777447283.png'
+        : 'https://appcdn.goqii.com/storeimg/34165_1777294404.png',
       copy: t('features.activity_copy'),
       micro: t('features.activity_micro')
     },
