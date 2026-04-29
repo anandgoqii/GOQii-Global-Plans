@@ -1,9 +1,12 @@
 import { Activity, Apple, Dumbbell, UserCheck, Stethoscope, Award, Users } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
+import { usePreferences } from '../context/PreferencesContext';
 
 export function FeatureGrid() {
   const { t, i18n } = useTranslation();
+  const { preferences } = usePreferences();
   const isRtl = i18n.dir() === 'rtl';
+  const isMiddleEast = ['AE', 'SA', 'QA'].includes(preferences.country);
 
   const FEATURES = [
     {
@@ -30,7 +33,9 @@ export function FeatureGrid() {
     {
       icon: UserCheck,
       title: t('features.expert_title'),
-      image: 'https://appcdn.goqii.com/storeimg/13859_1777284656.png',
+      image: isMiddleEast 
+        ? 'https://appcdn.goqii.com/storeimg/86490_1777443983.png'
+        : 'https://appcdn.goqii.com/storeimg/13859_1777284656.png',
       copy: t('features.expert_copy'),
       micro: t('features.expert_micro')
     },
@@ -44,7 +49,9 @@ export function FeatureGrid() {
     {
       icon: Award,
       title: t('features.rewards_title'),
-      image: 'https://appcdn.goqii.com/storeimg/94616_1777284776.png',
+      image: isMiddleEast
+        ? 'https://appcdn.goqii.com/storeimg/9689_1777443998.png'
+        : 'https://appcdn.goqii.com/storeimg/94616_1777284776.png',
       copy: t('features.rewards_copy'),
       micro: t('features.rewards_micro')
     }

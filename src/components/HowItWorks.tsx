@@ -1,36 +1,47 @@
 import { Activity, BrainCircuit, Users, TrendingUp } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
+import { usePreferences } from '../context/PreferencesContext';
 
 export function HowItWorks() {
   const { t, i18n } = useTranslation();
+  const { preferences } = usePreferences();
   const isRtl = i18n.dir() === 'rtl';
+  const isMiddleEast = ['AE', 'SA', 'QA'].includes(preferences.country);
 
   const STEPS = [
     {
       icon: Activity,
       title: t('how_it_works.step1_title'),
-      image: 'https://appcdn.goqii.com/storeimg/1844_1777285584.png',
+      image: isMiddleEast
+        ? 'https://appcdn.goqii.com/storeimg/69638_1777444139.png'
+        : 'https://appcdn.goqii.com/storeimg/1844_1777285584.png',
       description: t('how_it_works.step1_desc'),
       color: 'bg-blue-50 text-blue-600'
     },
     {
       icon: BrainCircuit,
       title: t('how_it_works.step2_title'),
-      image: 'https://appcdn.goqii.com/storeimg/20849_1777286294.png',
+      image: isMiddleEast
+        ? 'https://appcdn.goqii.com/storeimg/7605_1777444246.png'
+        : 'https://appcdn.goqii.com/storeimg/20849_1777286294.png',
       description: t('how_it_works.step2_desc'),
       color: 'bg-purple-50 text-purple-600'
     },
     {
       icon: Users,
       title: t('how_it_works.step3_title'),
-      image: 'https://appcdn.goqii.com/storeimg/79212_1777286557.png',
+      image: isMiddleEast
+        ? 'https://appcdn.goqii.com/storeimg/30054_1777444299.png'
+        : 'https://appcdn.goqii.com/storeimg/79212_1777286557.png',
       description: t('how_it_works.step3_desc'),
       color: 'bg-orange-50 text-orange-600'
     },
     {
       icon: TrendingUp,
       title: t('how_it_works.step4_title'),
-      image: 'https://appcdn.goqii.com/storeimg/6070_1777286873.png',
+      image: isMiddleEast
+        ? 'https://appcdn.goqii.com/storeimg/72615_1777444430.png'
+        : 'https://appcdn.goqii.com/storeimg/6070_1777286873.png',
       description: t('how_it_works.step4_desc'),
       color: 'bg-emerald-50 text-emerald-600'
     }

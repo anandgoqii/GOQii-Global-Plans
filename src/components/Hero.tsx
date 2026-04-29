@@ -47,10 +47,6 @@ export function Hero() {
           className="hidden md:block w-full h-full object-cover"
           referrerPolicy="no-referrer"
         />
-        {/* Dynamic overlay for readability */}
-        <div className="absolute inset-0 bg-white/10 md:bg-white/25 lg:bg-gradient-to-r lg:from-white/55 lg:via-white/30 lg:to-transparent"></div>
-        {/* Bottom-to-top gradient for mobile to make bottom-aligned text pop */}
-        <div className="absolute inset-0 bg-gradient-to-t from-white/95 via-white/20 to-transparent block md:hidden"></div>
       </div>
 
       <div className="max-w-7xl mx-auto relative z-10 w-full h-[660px] md:h-auto flex flex-col justify-between md:block pt-[15px] md:pt-0 pb-6 md:pb-0">
