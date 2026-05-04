@@ -13,12 +13,21 @@ export function TopBar() {
             <span className="text-sm">{preferences.flag}</span>
             <span className="font-medium">{preferences.countryName}</span>
           </span>
+          <button 
+            onClick={() => setIsModalOpen(true)}
+            className="ml-2 underline opacity-70 hover:opacity-100 transition-opacity"
+          >
+            [Change]
+          </button>
         </div>
         <div className="flex items-center gap-2">
           <Globe className="w-3.5 h-3.5 opacity-80" />
-          <span className="flex items-center gap-1 text-white">
-            Language: <span className="font-medium">English</span>
-          </span>
+          <button 
+            onClick={() => setIsModalOpen(true)}
+            className="flex items-center gap-1 hover:text-white transition-colors"
+          >
+            Language: <span className="font-medium text-white">{preferences.language === 'EN' ? 'English' : preferences.language}</span> <span className="text-[10px] opacity-70">▼</span>
+          </button>
         </div>
       </div>
     </div>

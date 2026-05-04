@@ -79,7 +79,7 @@ export function RealTimeAndResults() {
 }
 
 export function FooterCTA() {
-  const { preferences } = usePreferences();
+  const { preferences, setIsModalOpen } = usePreferences();
   const { t, i18n } = useTranslation();
   const isRtl = i18n.dir() === 'rtl';
 
@@ -111,6 +111,12 @@ export function FooterCTA() {
             <a href="#" className="hover:text-white transition-colors">{t('footer.privacy')}</a>
             <a href="#" className="hover:text-white transition-colors">{t('footer.terms')}</a>
             <a href="#" className="hover:text-white transition-colors">{t('footer.support')}</a>
+            <button 
+              onClick={() => setIsModalOpen(true)}
+              className="hover:text-white transition-colors"
+            >
+              {t('footer.submit')}
+            </button>
           </div>
         </div>
       </footer>

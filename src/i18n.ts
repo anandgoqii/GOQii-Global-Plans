@@ -270,6 +270,22 @@ const resources = {
         cta_explore: "Explore Plans"
       }
     }
+  },
+  ar: {
+    translation: {
+      nav: { plans: "الخطط", how_it_works: "كيف يعمل", success_stories: "قصص النجاح", login: "تسجيل الدخول", get_started: "ابدأ الآن" },
+      hero: { title: "كل ما تحتاجه صحتك.", highlight: "تطبيق واحد بسيط.", pricing_tailored: "الخطط والأسعار مخصصة لـ" },
+      plans: { change_country: "تغيير الدولة", coming_soon_desc: "نحن نتوسع عالمياً. يرجى العودة قريباً أو تغيير موقعك." },
+      footer: { submit: "تغيير الدولة" }
+    }
+  },
+  zh: {
+    translation: {
+      nav: { plans: "计划", how_it_works: "工作原理", success_stories: "成功案例", login: "登录", get_started: "立即开始" },
+      hero: { title: "健康所需，应有尽有。", highlight: "一个简单的应用。", pricing_tailored: "为您量身定制的计划和价格" },
+      plans: { change_country: "更改国家", coming_soon_desc: "我们正在全球扩张。请稍后再来或切换您的位置。" },
+      footer: { submit: "更改国家" }
+    }
   }
 };
 
@@ -279,7 +295,7 @@ i18n
     resources,
     lng: 'en',
     fallbackLng: 'en',
-    supportedLngs: ['en'],
+    supportedLngs: ['en', 'ar', 'zh'],
     load: 'languageOnly',
     interpolation: {
       escapeValue: false,
