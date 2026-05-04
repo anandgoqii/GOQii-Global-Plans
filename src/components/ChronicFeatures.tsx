@@ -14,13 +14,6 @@ export function ChronicFeatures() {
       color: 'bg-blue-50 text-blue-600'
     },
     {
-      title: t('chronic_features.feature2_title'),
-      desc: t('chronic_features.feature2_desc'),
-      list: t('chronic_features.feature2_list'),
-      icon: Stethoscope,
-      color: 'bg-indigo-50 text-indigo-600'
-    },
-    {
       title: t('chronic_features.feature3_title'),
       desc: t('chronic_features.feature3_desc'),
       list: t('chronic_features.feature3_list'),
