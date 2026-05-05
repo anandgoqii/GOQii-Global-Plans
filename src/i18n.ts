@@ -274,17 +274,55 @@ const resources = {
   ar: {
     translation: {
       nav: { plans: "الخطط", how_it_works: "كيف يعمل", success_stories: "قصص النجاح", login: "تسجيل الدخول", get_started: "ابدأ الآن" },
-      hero: { title: "كل ما تحتاجه صحتك.", highlight: "تطبيق واحد بسيط.", pricing_tailored: "الخطط والأسعار مخصصة لـ" },
-      plans: { change_country: "تغيير الدولة", coming_soon_desc: "نحن نتوسع عالمياً. يرجى العودة قريباً أو تغيير موقعك." },
-      footer: { submit: "تغيير الدولة" }
+      hero: { 
+        title: "كل ما تحتاجه صحتك.", 
+        highlight: "تطبيق واحد بسيط.", 
+        subtitle: "تتبع، تناول الطعام، تحرك، تحسن، وابقَ متحفزاً - كل ذلك في مكان واحد.\nلا داعي لتبديل التطبيقات. لا بيانات مشتتة. فقط نتائج حقيقية.",
+        cta_start: "ابدأ خطتك",
+        cta_explore: "استكشف الخطط",
+        pricing_tailored: "الخطط والأسعار مخصصة لـ" 
+      },
+      plans: { 
+        title: "اختر نظامك الصحي",
+        subtitle: "برامج مصممة لأهدافك وأسلوب حياتك",
+        change_country: "تغيير الدولة", 
+        coming_soon: "الخطط قادمة قريباً في منطقتك",
+        coming_soon_desc: "نحن نتوسع عالمياً. يرجى العودة قريباً أو تغيير موقعك." 
+      },
+      footer: { submit: "تغيير الدولة" },
+      chronic_hero: {
+        badge: "رعاية متخصصة",
+        title: "التحكم الكامل في\nرحلتك الصحية",
+        desc: "أنظمة منظمة مصممة لإدارة الحالات المزمنة، وربط احتياجاتك السريرية بتتبع أسلوب حياتك اليومي.",
+        btn: "ابدأ خطة الرعاية الخاصة بك"
+      }
     }
   },
   zh: {
     translation: {
       nav: { plans: "计划", how_it_works: "工作原理", success_stories: "成功案例", login: "登录", get_started: "立即开始" },
-      hero: { title: "健康所需，应有尽有。", highlight: "一个简单的应用。", pricing_tailored: "为您量身定制的计划和价格" },
-      plans: { change_country: "更改国家", coming_soon_desc: "我们正在全球扩张。请稍后再来或切换您的位置。" },
-      footer: { submit: "更改国家" }
+      hero: { 
+        title: "健康所需，应有尽有。", 
+        highlight: "一个简单的应用。", 
+        subtitle: "追踪、饮食、运动、改进并保持动力——尽在一个地方。\n无需切换应用。没有分散的数据。只有真实的成果。",
+        cta_start: "开始你的计划",
+        cta_explore: "探索计划",
+        pricing_tailored: "为您量身定制的计划和价格" 
+      },
+      plans: { 
+        title: "选择您的健康系统",
+        subtitle: "专为您的目标和生活方式设计的计划",
+        change_country: "更改国家", 
+        coming_soon: "计划即将来到您所在的地区",
+        coming_soon_desc: "我们正在全球扩张。请稍后再来或切换您的位置。" 
+      },
+      footer: { submit: "更改国家" },
+      chronic_hero: {
+        badge: "专业护理",
+        title: "完全掌控您的健康之旅",
+        desc: "专为慢性病管理设计的结构化系统，将您的临床需求与日常饮食追踪连接起来。",
+        btn: "开始您的护理计划"
+      }
     }
   }
 };

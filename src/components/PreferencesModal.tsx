@@ -94,7 +94,31 @@ export function PreferencesModal() {
                   <label className="block text-sm font-medium text-neutral-700 mb-1.5">{t('hero.pricing_tailored')}</label>
                   <select 
                     value={localCountry}
-                    onChange={(e) => setLocalCountry(e.target.value as any)}
+                    onChange={(e) => {
+                      const newCountry = e.target.value;
+                      setLocalCountry(newCountry as any);
+                      
+                      let newLang = 'EN';
+                      // Auto-select language based on country
+                      if (['AE', 'SA', 'QA'].includes(newCountry)) {
+                        newLang = 'AR';
+                      } else if (['CN', 'HK'].includes(newCountry)) {
+                        newLang = 'ZH';
+                      }
+                      
+                      setLocalLanguage(newLang as any);
+                      
+                      // Apply immediately
+                      const selectedCountry = COUNTRY_OPTIONS.find(c => c.code === newCountry)!;
+                      setPreferences({
+                        country: newCountry as any,
+                        countryName: selectedCountry.name,
+                        flag: selectedCountry.flag,
+                        currency: selectedCountry.currency,
+                        language: newLang as any,
+                      });
+                      i18n.changeLanguage(newLang.toLowerCase());
+                    }}
                     className="w-full bg-neutral-50 border border-neutral-200 text-neutral-900 rounded-lg px-4 py-3 appearance-none outline-none focus:border-neutral-500 focus:ring-1 focus:ring-neutral-500 transition-all font-medium"
                     dir="ltr"
                   >
@@ -108,7 +132,16 @@ export function PreferencesModal() {
                   <label className="block text-sm font-medium text-neutral-700 mb-1.5">Language</label>
                   <select 
                     value={localLanguage}
-                    onChange={(e) => setLocalLanguage(e.target.value as any)}
+                    onChange={(e) => {
+                      const newLang = e.target.value;
+                      setLocalLanguage(newLang as any);
+                      
+                      // Apply immediately
+                      setPreferences({
+                        language: newLang as any,
+                      });
+                      i18n.changeLanguage(newLang.toLowerCase());
+                    }}
                     className="w-full bg-neutral-50 border border-neutral-200 text-neutral-900 rounded-lg px-4 py-3 appearance-none outline-none focus:border-neutral-500 focus:ring-1 focus:ring-neutral-500 transition-all font-medium"
                     dir="ltr"
                   >
