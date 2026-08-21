@@ -16,6 +16,10 @@ interface PreferencesContextType {
   setPreferences: (prefs: Partial<Preferences>) => void;
   isModalOpen: boolean;
   setIsModalOpen: (isOpen: boolean) => void;
+  isLeadModalOpen: boolean;
+  leadProduct: string;
+  openLeadModal: (productName?: string) => void;
+  closeLeadModal: () => void;
 }
 
 const defaultPreferences: Preferences = {
@@ -31,13 +35,35 @@ const PreferencesContext = createContext<PreferencesContextType | undefined>(und
 export function PreferencesProvider({ children }: { children: ReactNode }) {
   const [preferences, setPreferencesState] = useState<Preferences>(defaultPreferences);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isLeadModalOpen, setIsLeadModalOpen] = useState(false);
+  const [leadProduct, setLeadProduct] = useState('GOQii Super Life Program');
 
   const setPreferences = (prefs: Partial<Preferences>) => {
     setPreferencesState((prev) => ({ ...prev, ...prefs }));
   };
 
+  const openLeadModal = (productName = 'GOQii Super Life Program') => {
+    setLeadProduct(productName);
+    setIsLeadModalOpen(true);
+  };
+
+  const closeLeadModal = () => {
+    setIsLeadModalOpen(false);
+  };
+
   return (
-    <PreferencesContext.Provider value={{ preferences, setPreferences, isModalOpen, setIsModalOpen }}>
+    <PreferencesContext.Provider 
+      value={{ 
+        preferences, 
+        setPreferences, 
+        isModalOpen, 
+        setIsModalOpen,
+        isLeadModalOpen,
+        leadProduct,
+        openLeadModal,
+        closeLeadModal
+      }}
+    >
       {children}
     </PreferencesContext.Provider>
   );

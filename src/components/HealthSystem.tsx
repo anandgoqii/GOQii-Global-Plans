@@ -4,7 +4,16 @@ import { fetchPlans, Plan } from '../lib/api';
 import { Check, Loader2 } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 import { useTranslation } from 'react-i18next';
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
+import { SuperLifePlanCard } from './SuperLifePlanCard';
+import { WeightManagementPlanCard } from './WeightManagementPlanCard';
+import { DiabetesManagementPlanCard } from './DiabetesManagementPlanCard';
+import { FattyLiverPlanCard } from './FattyLiverPlanCard';
+import { WomensHealthPlanCard } from './WomensHealthPlanCard';
+import { HeartHealthPlanCard } from './HeartHealthPlanCard';
+import { GutHealthPlanCard } from './GutHealthPlanCard';
+import { LifestyleManagementPlanCard } from './LifestyleManagementPlanCard';
+import { openContactUsWhatsApp, openPlanWhatsApp } from '../lib/whatsapp';
 
 export function HealthSystem() {
   const { preferences, setIsModalOpen } = usePreferences();
@@ -37,8 +46,7 @@ export function HealthSystem() {
   }, [preferences.country]);
 
   const filteredPlans = plans
-    .filter(p => activeTab === 'All Plans' || p.category === activeTab)
-    .slice(0, 3); // Render top 3 plans as requested
+    .filter(p => activeTab === 'All Plans' || p.category === activeTab);
 
   return (
     <section id="plans" className="py-24 bg-neutral-50 px-4">
@@ -108,7 +116,7 @@ export function HealthSystem() {
             </div>
 
             {/* Plans Grid */}
-            <div className={`grid md:grid-cols-2 lg:grid-cols-3 gap-8 items-stretch ${isRtl ? 'direction-rtl' : ''}`}>
+            <div className={`grid sm:grid-cols-2 lg:grid-cols-3 gap-6 items-stretch ${isRtl ? 'direction-rtl' : ''}`}>
               <AnimatePresence mode="popLayout">
                 {filteredPlans.map((plan, i) => (
                   <motion.div
@@ -118,78 +126,226 @@ export function HealthSystem() {
                     exit={{ opacity: 0, scale: 0.9 }}
                     transition={{ duration: 0.4, delay: i * 0.1 }}
                     key={plan.id}
-                    className={`relative flex flex-col bg-white rounded-3xl p-8 border ${isRtl ? 'text-right' : 'text-left'} ${
-                      plan.isPopular ? 'border-neutral-900 shadow-2xl md:scale-105 z-10' : 'border-neutral-200 shadow-lg md:mt-4 md:mb-4 mb-4'
-                    }`}
+                    className="flex justify-center"
                   >
-                    {plan.tag && (
-                      <div className={`absolute top-0 -translate-y-1/2 ${
-                        plan.isPopular ? 'left-1/2 -translate-x-1/2' : (isRtl ? 'right-8' : 'left-8')
-                      }`}>
-                        <span className={`px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-wide ${
-                          plan.isPopular ? 'bg-neutral-900 text-white' : 'bg-emerald-100 text-emerald-800'
+                    {plan.id === 'super-life' || plan.variant === 'premium' ? (
+                      <SuperLifePlanCard
+                        plan={{
+                          id: plan.id,
+                          badge: plan.badge || 'PREMIUM PLAN',
+                          title: plan.name,
+                          description: plan.shortDescription,
+                          quote: plan.quote || 'Ask for a Quote',
+                          sectionLabel: plan.includedHeading || "WHAT'S INCLUDED:",
+                          features: plan.features,
+                          cta: plan.cta || 'Contact Us',
+                          variant: 'premium'
+                        }}
+                        className="h-full"
+                      />
+                    ) : plan.id === 'weight-management' || plan.variant === 'weight-management' ? (
+                      <WeightManagementPlanCard
+                        plan={{
+                          id: plan.id,
+                          title: plan.name,
+                          description: plan.shortDescription,
+                          originalPrice: plan.originalPrice || '₹22,999',
+                          savings: plan.savings || 'SAVE 20%',
+                          price: plan.price || '₹ 18,399',
+                          billing: plan.billing || 'Annual',
+                          monthlyPrice: plan.monthlyEquivalent || '₹1,533 / month',
+                          sectionLabel: plan.includedHeading || "WHAT'S INCLUDED:",
+                          features: plan.features,
+                          cta: plan.cta || 'Select This Plan',
+                          variant: 'weight-management'
+                        }}
+                        className="h-full"
+                      />
+                    ) : plan.id === 'diabetes-management' || plan.variant === 'diabetes-management' ? (
+                      <DiabetesManagementPlanCard
+                        plan={{
+                          id: plan.id,
+                          badge: plan.badge || 'MOST POPULAR',
+                          title: plan.name,
+                          description: plan.shortDescription,
+                          originalPrice: plan.originalPrice || '₹24,999',
+                          savings: plan.savings || 'SAVE 20%',
+                          price: plan.price || '₹ 19,999',
+                          billing: plan.billing || 'Annual',
+                          monthlyPrice: plan.monthlyEquivalent || '₹1,667 / month',
+                          sectionLabel: plan.includedHeading || "WHAT'S INCLUDED:",
+                          features: plan.features,
+                          cta: plan.cta || 'Select This Plan',
+                          variant: 'diabetes-management'
+                        }}
+                        className="h-full"
+                      />
+                    ) : plan.id === 'fatty-liver' || plan.variant === 'fatty-liver' ? (
+                      <FattyLiverPlanCard
+                        plan={{
+                          id: plan.id,
+                          title: plan.name,
+                          description: plan.shortDescription,
+                          originalPrice: plan.originalPrice || '₹25,999',
+                          savings: plan.savings || 'SAVE 20%',
+                          price: plan.price || '₹ 20,799',
+                          billing: plan.billing || 'Annual',
+                          monthlyPrice: plan.monthlyEquivalent || '₹1,733 / month',
+                          sectionLabel: plan.includedHeading || "WHAT'S INCLUDED:",
+                          features: plan.features,
+                          cta: plan.cta || 'Select This Plan',
+                          variant: 'fatty-liver'
+                        }}
+                        className="h-full"
+                      />
+                    ) : plan.id === 'womens-health' || plan.variant === 'womens-health' ? (
+                      <WomensHealthPlanCard
+                        plan={{
+                          id: plan.id,
+                          title: plan.name,
+                          description: plan.shortDescription,
+                          originalPrice: plan.originalPrice || '₹24,999',
+                          savings: plan.savings || 'SAVE 20%',
+                          price: plan.price || '₹ 19,999',
+                          billing: plan.billing || 'Annual',
+                          monthlyPrice: plan.monthlyEquivalent || '₹1,667 / month',
+                          sectionLabel: plan.includedHeading || "WHAT'S INCLUDED:",
+                          features: plan.features,
+                          cta: plan.cta || 'Select This Plan',
+                          variant: 'womens-health'
+                        }}
+                        className="h-full"
+                      />
+                    ) : plan.id === 'heart-health' || plan.variant === 'heart-health' ? (
+                      <HeartHealthPlanCard
+                        plan={{
+                          id: plan.id,
+                          title: plan.name,
+                          description: plan.shortDescription,
+                          originalPrice: plan.originalPrice || '₹25,999',
+                          savings: plan.savings || 'SAVE 20%',
+                          price: plan.price || '₹ 20,799',
+                          billing: plan.billing || 'Annual',
+                          monthlyPrice: plan.monthlyEquivalent || '₹1,733 / month',
+                          sectionLabel: plan.includedHeading || "WHAT'S INCLUDED:",
+                          features: plan.features,
+                          cta: plan.cta || 'Select This Plan',
+                          variant: 'heart-health'
+                        }}
+                        className="h-full"
+                      />
+                    ) : plan.id === 'gut-health' || plan.variant === 'gut-health' ? (
+                      <GutHealthPlanCard
+                        plan={{
+                          id: plan.id,
+                          title: plan.name,
+                          description: plan.shortDescription,
+                          originalPrice: plan.originalPrice || '₹23,999',
+                          savings: plan.savings || 'SAVE 20%',
+                          price: plan.price || '₹ 19,199',
+                          billing: plan.billing || 'Annual',
+                          monthlyPrice: plan.monthlyEquivalent || '₹1,600 / month',
+                          sectionLabel: plan.includedHeading || "WHAT'S INCLUDED:",
+                          features: plan.features,
+                          cta: plan.cta || 'Select This Plan',
+                          variant: 'gut-health'
+                        }}
+                        className="h-full"
+                      />
+                    ) : plan.id === 'lifestyle-management' || plan.variant === 'lifestyle-management' ? (
+                      <LifestyleManagementPlanCard
+                        plan={{
+                          id: plan.id,
+                          title: plan.name,
+                          description: plan.shortDescription,
+                          originalPrice: plan.originalPrice || '₹15,999',
+                          savings: plan.savings || 'SAVE 20%',
+                          price: plan.price || '₹ 12,999',
+                          billing: plan.billing || 'Annual',
+                          monthlyPrice: plan.monthlyEquivalent || '₹1,067 / month',
+                          sectionLabel: plan.includedHeading || "WHAT'S INCLUDED:",
+                          features: plan.features,
+                          cta: plan.cta || 'Select This Plan',
+                          variant: 'lifestyle-management'
+                        }}
+                        className="h-full"
+                      />
+                    ) : (
+                      <div
+                        className={`relative flex flex-col w-full bg-white rounded-3xl p-8 border ${isRtl ? 'text-right' : 'text-left'} ${
+                          plan.isPopular ? 'border-neutral-900 shadow-2xl md:scale-105 z-10' : 'border-neutral-200 shadow-lg md:mt-4 md:mb-4 mb-4'
+                        }`}
+                      >
+                        {plan.tag && (
+                          <div className="absolute top-0 -translate-y-1/2 left-1/2 -translate-x-1/2 z-20">
+                            <span className="px-4 py-1 rounded-full text-[10.5px] font-bold uppercase tracking-wider bg-[#122033] text-white border border-neutral-700 shadow-sm whitespace-nowrap">
+                              {plan.tag}
+                            </span>
+                          </div>
+                        )}
+
+                        <div className="mb-2">
+                          <span className="text-sm font-medium text-neutral-500">{plan.category}</span>
+                        </div>
+                        {plan.image && (
+                          <div className="aspect-video w-full rounded-2xl overflow-hidden mb-6 border border-neutral-100 shadow-inner bg-neutral-50">
+                            <img 
+                              src={plan.image} 
+                              alt={plan.name} 
+                              className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                              referrerPolicy="no-referrer"
+                            />
+                          </div>
+                        )}
+                        <h3 className="text-2xl font-bold text-neutral-900 mb-3">{plan.name}</h3>
+                        <p className="text-neutral-600 mb-6 text-sm">{plan.shortDescription}</p>
+
+                        <div className="mb-8">
+                          <div className={`flex items-baseline gap-1 ${isRtl ? 'flex-row-reverse' : ''}`}>
+                            <span className="text-4xl font-bold text-neutral-900 tracking-tight">
+                              {preferences.currency}{billingCycle === 'monthly' ? plan.monthlyPrice : Math.round((plan.annualPrice || 0) / 12)}
+                            </span>
+                            <span className="text-neutral-500 font-medium">{t('plans.per_mo')}</span>
+                          </div>
+                          {billingCycle === 'annual' && plan.annualPrice && (
+                            <div className="text-sm text-neutral-500 mt-1">
+                              {t('plans.billed_yearly')} {preferences.currency}{plan.annualPrice}
+                            </div>
+                          )}
+                        </div>
+
+                        <div className="bg-neutral-50 -mx-8 px-8 py-4 mb-8 text-sm font-medium text-neutral-700 flex items-center justify-center border-y border-neutral-100">
+                          {t('plans.byod')}
+                        </div>
+
+                        <ul className="space-y-4 mb-8 flex-grow">
+                          {plan.features.map((feature, idx) => (
+                            <li key={idx} className={`flex gap-3 text-neutral-700 ${isRtl ? 'flex-row-reverse' : ''}`}>
+                              <div className={`mt-0.5 min-w-[20px] text-emerald-500 ${isRtl ? 'rotate-0' : ''}`}>
+                                <Check className="w-5 h-5" />
+                              </div>
+                              <span className="text-sm leading-tight">{feature}</span>
+                            </li>
+                          ))}
+                        </ul>
+
+                        <button 
+                          onClick={() => {
+                            if (plan.category === 'Chronic Care') {
+                              navigate('/chronic-care');
+                            } else {
+                              openPlanWhatsApp(plan.name, `${preferences.currency}${plan.annualPrice || plan.monthlyPrice}`);
+                            }
+                          }}
+                          className={`w-full py-4 rounded-xl font-semibold transition-colors mt-auto ${
+                          plan.isPopular 
+                            ? 'bg-neutral-900 text-white hover:bg-neutral-800' 
+                            : 'bg-neutral-100 text-neutral-900 hover:bg-neutral-200'
                         }`}>
-                          {plan.tag}
-                        </span>
+                          {t('plans.view_details')}
+                        </button>
                       </div>
                     )}
-
-                    <div className="mb-2">
-                      <span className="text-sm font-medium text-neutral-500">{plan.category}</span>
-                    </div>
-                    <div className="aspect-video w-full rounded-2xl overflow-hidden mb-6 border border-neutral-100 shadow-inner bg-neutral-50">
-                      <img 
-                        src={plan.image} 
-                        alt={plan.name} 
-                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                        referrerPolicy="no-referrer"
-                      />
-                    </div>
-                    <h3 className="text-2xl font-bold text-neutral-900 mb-3">{plan.name}</h3>
-                    <p className="text-neutral-600 mb-6 text-sm">{plan.shortDescription}</p>
-
-                    <div className="mb-8">
-                      <div className={`flex items-baseline gap-1 ${isRtl ? 'flex-row-reverse' : ''}`}>
-                        <span className="text-4xl font-bold text-neutral-900 tracking-tight">
-                          {preferences.currency}{billingCycle === 'monthly' ? plan.monthlyPrice : Math.round(plan.annualPrice / 12)}
-                        </span>
-                        <span className="text-neutral-500 font-medium">{t('plans.per_mo')}</span>
-                      </div>
-                      {billingCycle === 'annual' && (
-                        <div className="text-sm text-neutral-500 mt-1">
-                          {t('plans.billed_yearly')} {preferences.currency}{plan.annualPrice}
-                        </div>
-                      )}
-                    </div>
-
-                    <div className="bg-neutral-50 -mx-8 px-8 py-4 mb-8 text-sm font-medium text-neutral-700 flex items-center justify-center border-y border-neutral-100">
-                      {t('plans.byod')}
-                    </div>
-
-                    <ul className="space-y-4 mb-8 flex-grow">
-                      {plan.features.map((feature, idx) => (
-                        <li key={idx} className={`flex gap-3 text-neutral-700 ${isRtl ? 'flex-row-reverse' : ''}`}>
-                          <div className={`mt-0.5 min-w-[20px] text-emerald-500 ${isRtl ? 'rotate-0' : ''}`}>
-                            <Check className="w-5 h-5" />
-                          </div>
-                          <span className="text-sm leading-tight">{feature}</span>
-                        </li>
-                      ))}
-                    </ul>
-
-                    <button 
-                      onClick={() => {
-                        if (plan.category === 'Chronic Care') {
-                          navigate('/chronic-care');
-                        }
-                      }}
-                      className={`w-full py-4 rounded-xl font-semibold transition-colors mt-auto ${
-                      plan.isPopular 
-                        ? 'bg-neutral-900 text-white hover:bg-neutral-800' 
-                        : 'bg-neutral-100 text-neutral-900 hover:bg-neutral-200'
-                    }`}>
-                      {t('plans.view_details')}
-                    </button>
                   </motion.div>
                 ))}
               </AnimatePresence>
@@ -205,10 +361,16 @@ export function HealthSystem() {
             <div className="mt-16 text-center flex flex-col items-center">
                <p className="text-neutral-600 mb-6 font-medium">{t('plans.not_sure')}</p>
                <div className={`flex flex-wrap justify-center gap-4 ${isRtl ? 'flex-row-reverse' : ''}`}>
-                  <button className="bg-emerald-600 hover:bg-emerald-700 text-white px-8 py-3.5 rounded-xl font-medium transition-colors">
+                  <button 
+                    onClick={() => openContactUsWhatsApp('finding the right GOQii health plan')}
+                    className="bg-emerald-600 hover:bg-emerald-700 text-white px-8 py-3.5 rounded-xl font-medium transition-colors"
+                  >
                     {t('plans.find_my_plan')}
                   </button>
-                  <button className="bg-white hover:bg-neutral-50 text-neutral-900 border border-neutral-200 px-8 py-3.5 rounded-xl font-medium transition-colors">
+                  <button 
+                    onClick={() => setActiveTab('All Plans')}
+                    className="bg-white hover:bg-neutral-50 text-neutral-900 border border-neutral-200 px-8 py-3.5 rounded-xl font-medium transition-colors"
+                  >
                     {t('plans.explore_all')}
                   </button>
                </div>

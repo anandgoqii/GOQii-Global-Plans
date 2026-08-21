@@ -1,8 +1,9 @@
-import { Menu, X, Globe } from 'lucide-react';
+import { Menu, X, Globe, MessageCircle } from 'lucide-react';
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
+import { openContactUsWhatsApp } from '../lib/whatsapp';
 
 const NAV_LINKS = [
   { name: 'Plans', href: '/#plans' },
@@ -116,7 +117,14 @@ export function NavBar() {
               </AnimatePresence>
             </div>
 
-            <div className="flex items-center space-x-4">
+            <div className="flex items-center space-x-3">
+              <button
+                onClick={() => openContactUsWhatsApp()}
+                className="flex items-center gap-1.5 bg-[#25D366]/10 hover:bg-[#25D366]/20 text-[#128C7E] px-4 py-2 rounded-lg text-sm font-semibold transition-colors border border-[#25D366]/30"
+              >
+                <MessageCircle className="w-4 h-4" />
+                <span>Contact Us</span>
+              </button>
               <a href="/#plans" className="bg-neutral-900 text-white hover:bg-neutral-800 px-5 py-2 rounded-lg text-sm font-medium transition-colors">
                 {t('nav.get_started')}
               </a>
@@ -169,6 +177,16 @@ export function NavBar() {
                 </Link>
               ))}
               <div className="border-t border-neutral-100 pt-4 pb-2 space-y-3">
+                <button 
+                  onClick={() => {
+                    setIsOpen(false);
+                    openContactUsWhatsApp();
+                  }}
+                  className="w-full text-center bg-[#25D366]/15 hover:bg-[#25D366]/25 text-[#128C7E] border border-[#25D366]/30 px-5 py-3 rounded-xl text-base font-semibold transition-colors flex items-center justify-center gap-2"
+                >
+                  <MessageCircle className="w-5 h-5" />
+                  <span>Contact Us on WhatsApp</span>
+                </button>
                 <Link 
                   to="/#plans" 
                   onClick={() => handleLinkClick('/#plans')}

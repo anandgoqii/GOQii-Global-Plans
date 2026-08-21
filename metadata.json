@@ -1,6 +1,6 @@
 {
   "name": "GOQii Global Store",
-  "description": "",
+  "description": "GOQii Global Health & Longevity Store featuring the GOQii Super Life Program and personalized health plans.",
   "requestFramePermissions": [],
-  "majorCapabilities": []
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
 }

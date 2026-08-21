@@ -8,6 +8,8 @@ import { PreferencesProvider } from './context/PreferencesContext';
 import { TopBar } from './components/TopBar';
 import { NavBar } from './components/NavBar';
 import { PreferencesModal } from './components/PreferencesModal';
+import { LeadModal } from './components/LeadModal';
+import { FloatingWhatsApp } from './components/FloatingWhatsApp';
 import { HomePage } from './components/HomePage';
 import { ChronicCarePage } from './components/ChronicCarePage';
 import { SuccessStoriesPage } from './components/SuccessStoriesPage';
@@ -76,6 +78,8 @@ function AppContent() {
           <AnimatedRoutes />
         </main>
         <PreferencesModal />
+        <LeadModal />
+        <FloatingWhatsApp />
       </div>
     </Router>
   );

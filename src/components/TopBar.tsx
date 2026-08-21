@@ -1,5 +1,6 @@
-import { Globe } from 'lucide-react';
+import { Globe, MessageCircle } from 'lucide-react';
 import { usePreferences } from '../context/PreferencesContext';
+import { openContactUsWhatsApp } from '../lib/whatsapp';
 
 export function TopBar() {
   const { preferences, setIsModalOpen } = usePreferences();
@@ -20,14 +21,23 @@ export function TopBar() {
             [Change]
           </button>
         </div>
-        <div className="flex items-center gap-2">
-          <Globe className="w-3.5 h-3.5 opacity-80" />
-          <button 
-            onClick={() => setIsModalOpen(true)}
-            className="flex items-center gap-1 hover:text-white transition-colors"
+        <div className="flex items-center gap-4">
+          <button
+            onClick={() => openContactUsWhatsApp()}
+            className="flex items-center gap-1 text-[#25D366] hover:text-[#38ef7d] transition-colors font-medium"
           >
-            Language: <span className="font-medium text-white">{preferences.language === 'EN' ? 'English' : preferences.language}</span> <span className="text-[10px] opacity-70">▼</span>
+            <MessageCircle className="w-3.5 h-3.5" />
+            <span>Contact Us on WhatsApp</span>
           </button>
+          <div className="flex items-center gap-2">
+            <Globe className="w-3.5 h-3.5 opacity-80" />
+            <button 
+              onClick={() => setIsModalOpen(true)}
+              className="flex items-center gap-1 hover:text-white transition-colors"
+            >
+              Language: <span className="font-medium text-white">{preferences.language === 'EN' ? 'English' : preferences.language}</span> <span className="text-[10px] opacity-70">▼</span>
+            </button>
+          </div>
         </div>
       </div>
     </div>

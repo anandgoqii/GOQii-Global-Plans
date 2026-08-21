@@ -1,8 +1,9 @@
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight, MessageCircle } from 'lucide-react';
 import { usePreferences } from '../context/PreferencesContext';
 import { motion } from 'motion/react';
 import { useTranslation } from 'react-i18next';
 import { useNavigate, Link } from 'react-router-dom';
+import { openContactUsWhatsApp } from '../lib/whatsapp';
 
 export function RealTimeAndResults() {
   const { t, i18n } = useTranslation();
@@ -107,7 +108,14 @@ export function FooterCTA() {
       <footer className="bg-neutral-950 text-neutral-500 py-12 px-4 text-center text-sm">
         <div className={`max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4 ${isRtl ? 'md:flex-row-reverse' : ''}`}>
           <div>© 2026 GOQii. {t('footer.rights')}</div>
-          <div className={`flex gap-6 ${isRtl ? 'flex-row-reverse' : ''}`}>
+          <div className={`flex flex-wrap gap-6 items-center justify-center ${isRtl ? 'flex-row-reverse' : ''}`}>
+            <button 
+              onClick={() => openContactUsWhatsApp()} 
+              className="text-emerald-400 hover:text-emerald-300 font-medium flex items-center gap-1.5 transition-colors"
+            >
+              <MessageCircle className="w-4 h-4" />
+              <span>Contact Us</span>
+            </button>
             <a href="#" className="hover:text-white transition-colors">{t('footer.privacy')}</a>
             <a href="#" className="hover:text-white transition-colors">{t('footer.terms')}</a>
             <a href="#" className="hover:text-white transition-colors">{t('footer.support')}</a>
